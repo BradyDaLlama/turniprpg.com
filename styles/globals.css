@@ -579,7 +579,7 @@ li:before {
     /* ------------- All for the navbar ---------------*/
     .navbar-links {
         position: absolute;
-        padding-bottom: 24px;
+        padding: 24px 0px;
         width: 100%;
         left: 0;
         z-index: -1;

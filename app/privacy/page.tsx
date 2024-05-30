@@ -4,7 +4,7 @@ import privacy from '@/data/privacy.json';
 export default function Privacy() {
     return (
         <>
-            <h1 id="privacy">Privacy Policy for turnipRPG Discord Bot</h1>
+            <h1 id="privacy">turnipRPG Privacy Policy</h1>
             <p>
                 This Privacy Policy describes how the turnipRPG Discord bot ("turnipRPG") collects, uses, and protects user
                 data. By using turnipRPG, you agree to the practices outlined in this policy.
@@ -17,7 +17,7 @@ export default function Privacy() {
                     {(policy.policies && (
                         <ul className="list-box">
                             {policy.policies.map((x: string) => (
-                                <li className="text-xl mb-3">{x}</li>
+                                <li>{x}</li>
                             ))}
                         </ul>
                     )) ||
@@ -25,8 +25,8 @@ export default function Privacy() {
                             <div className="data-table">
                                 {policy.dataTable.map((data, index) => (
                                     <span className="data-row">
-                                        <div className="data-collection">{data.dataCollection}</div>
-                                        <div className="purpose">{data.purpose}</div>
+                                        <h2 className="data-collection">{data.dataCollection}</h2>
+                                        <p className="purpose">{data.purpose}</p>
                                     </span>
                                 ))}
                             </div>

@@ -2,15 +2,25 @@ h1 {
     font-size: 48px;
 }
 
+h1,
+h2,
+p,
+.list-box,
+.data-table {
+    margin-bottom: 18px;
+}
+
 h2 {
     text-align: left;
     text-decoration: underline;
     font-size: 24px;
-    margin-bottom: 12px;
 }
 
-p {
-    font-size: 24px;
+p,
+li,
+.purpose {
+    font-size: 16px;
+    text-align: left;
 }
 
 li:before {
@@ -26,7 +36,6 @@ li:before {
 
 .data-row {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
 
@@ -36,31 +45,22 @@ li:before {
 
 .data-collection {
     flex: 0.3;
-    font-size: 24px;
     align-self: center;
+    text-decoration: none;
 }
 
 .purpose {
     flex: 0.5;
-    font-size: 18px;
-    text-align: left;
 }
 
 @media (max-width: 1000px) {
-    .h1 {
-        font-size: 36px;
+    .data-row {
+        flex-direction: column;
     }
 
-    .h2 {
-        font-size: 24px;
-    }
-
-    .list-box {
-        padding: 0px;
-    }
-
-    .p,
-    .list-box li {
-        font-size: 20px;
+    .data-collection {
+        align-self: flex-start;
+        margin-bottom: 12px;
+        text-decoration: underline;
     }
 }

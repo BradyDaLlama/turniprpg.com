@@ -16,7 +16,7 @@ export default function Terms() {
                     </h2>
                     <ul className="list-box">
                         {term.terms.map((term: string) => (
-                            <li className="text-xl mb-3">{term}</li>
+                            <li>{term}</li>
                         ))}
                     </ul>
                 </div>
