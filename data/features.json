@@ -1,0 +1,79 @@
+[
+    {
+        "title": "Open world exploration",
+        "description": [
+            "Unlock numerous areas to explore in",
+            "Freely walk around and choose what to do and interact with.",
+            "Chop trees to collect wood, mine for resources, forage, or do other activities while exploring!"
+        ],
+        "image": "/images/bot/exploration.png",
+        "alt": "exploration"
+    },
+    {
+        "title": "Guilds",
+        "description": [
+            "Team up with other players to rise amongst other guilds!",
+            "Select a profession to let members gain bonuses in that field."
+        ],
+        "image": "/images/bot/guilds.png",
+        "alt": "guilds"
+    },
+    {
+        "title": "Farming",
+        "description": [
+            "Grow a variety of crops, tending to them by watering and harvesting.",
+            "Craft or purchase various fertilizers to help your crops.",
+            "Use materials to expand your farmland to cultivate a thriving agricultural empire!"
+        ],
+        "image": "/images/bot/farms.png",
+        "alt": "farms"
+    },
+    {
+        "title": "Villages and Merchants",
+        "description": [
+            "Visit the village in each area and purchase helpful items.",
+            "Sometimes a Merchant stops by a village. They'll sell items or upgrade your tools while they stay for the day!"
+        ],
+        "image": "/images/bot/villages.png",
+        "alt": "merchant"
+    },
+    {
+        "title": "Crafting",
+        "description": [
+            "Learn new crafting recipes by leveling up, purchasing, or finding while exploring.",
+            "Use resources and materials to craft various items and equipment."
+        ],
+        "image": "/images/bot/crafting.png",
+        "alt": "crafting"
+    },
+    {
+        "title": "Fishing",
+        "description": [
+            "Fish in any of the available areas, with fish differing between each one.",
+            "Complete an engaging and unique fishing minigame to reel in your fish.",
+            "Utilize baits to increase bite rate, quantity of fish, or fish rarity!"
+        ],
+        "image": "/images/bot/fishingheader.png",
+        "alt": "fishing"
+    },
+    {
+        "title": "Battle",
+        "description": [
+            "Engage in interactive turn-based battles against various monsters and foes",
+            "Defeat the monster and collect coins, xp, and monster items",
+            "Alternative to monsters, invite other players to a duel!"
+        ],
+        "image": "/images/bot/battle.png",
+        "alt": "duel"
+    },
+    {
+        "title": "Profiles",
+        "description": [
+            "Health and energy regenerate over time, but you can also eat food or use potions to recover.",
+            "Gain more coins and xp to become #1 on the leaderboards! Check globally, within the server, and even for various season intervals.",
+            "Collect badges and track your stats and achievements!"
+        ],
+        "image": "/images/bot/profiles.png",
+        "alt": "profiles"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "image": "fisherman",
+        "description": "Test your luck of the sea and go fishing. You might even reel in some treasure..."
+    },
+    {
+        "image": "gardener",
+        "description": "Tend to crops and flowers on your farm. Make sure to water plants every so often so they keep growing!"
+    },
+    {
+        "image": "battle",
+        "description": "Engage in a unique combat system with various monsters. Defeating them will reward you with coins, xp, and monster items"
+    },
+    {
+        "image": "itemsguy",
+        "description": "Collect a variety of items such as materials, consumables, and critters to aid you throughout your adventures"
+    }
+]

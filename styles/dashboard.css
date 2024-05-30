@@ -1,0 +1,189 @@
+.userbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, var(--gradient1), var(--gradient2));
+    padding: 12px;
+    padding-top: 72px;
+}
+
+.avatar {
+    display: inline;
+    margin-right: 16px;
+    font-size: 32px;
+}
+
+.username {
+    font-size: 64px;
+    color: var(--text);
+}
+
+.info {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.serverheading {
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+.serverdescription {
+    font-size: 36px;
+}
+
+.servercard,
+.profile {
+    background-color: var(--gradient1);
+    background: linear-gradient(45deg, var(--gradient1), var(--gradient2));
+    width: 320px;
+    height: 380px;
+    margin: 32px;
+    border-radius: 18px;
+    display: inline-block;
+}
+
+.profile {
+    width: fit-content;
+    height: fit-content;
+    padding: 32px;
+}
+
+.stat {
+    display: inline;
+    margin: 12px;
+}
+
+.barstat {
+    font-size: 32px;
+    margin-right: 16px;
+}
+
+.staticon {
+    margin-right: 16px;
+}
+
+.profile div span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.profile span {
+    display: block;
+    align-items: center;
+}
+
+.badge {
+    margin-right: 8px;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+
+.bar {
+    display: inline-block;
+    height: 32px;
+    width: 360px;
+    background-color: var(--embed);
+    border-radius: 16px;
+}
+
+.barxp,
+.barhealth,
+.barenergy {
+    height: 16px;
+    margin: 8px;
+    border-radius: 12px;
+}
+
+.barhealth {
+    /*#ffbac4 but with a gradient*/
+    background: linear-gradient(45deg, #eb5a81, #ffbac4);
+}
+
+.barenergy {
+    /*#b2fefa but with a gradient*/
+    background: linear-gradient(45deg, #b30956, #f5475b);
+}
+
+.servericon {
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    background-color: var(--embed);
+    display: block;
+    margin: 0 auto;
+    margin-top: 72px;
+}
+
+.abbreviatedname {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+}
+
+.servername {
+    display: block;
+    font-size: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 auto; /* Horizontally center the text within its container */
+    width: 260px; /* Set a fixed width for the container */
+    margin-top: 16px;
+}
+
+.invite {
+    height: 30px;
+    width: 180px;
+    font-size: 24px;
+}
+
+.servercard:hover {
+    transform: translateY(-15px);
+    transition: 0.2s;
+}
+
+.servercard:has(.current) {
+    pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+    .userbar {
+        padding: 12px;
+        margin-top: 58px;
+    }
+
+    .profilepicture {
+        width: 32;
+        height: 32;
+    }
+
+    .name {
+        font-size: 32px;
+    }
+
+    .servercard,
+    .profile {
+        width: 240px;
+        height: 280px;
+        margin: 16px;
+    }
+
+    .serverheading {
+        font-size: 32px;
+    }
+
+    .serverdescription {
+        font-size: 24px;
+    }
+}

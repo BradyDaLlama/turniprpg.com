@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Data Collection",
+        "dataTable": [
+            {
+                "dataCollection": "User's public Discord ID",
+                "purpose": "The user's Discord ID is used to create and store their turnipRPG profile with things such as their currency balance, xp, inventory, and other things. This data is permanently attached to the user's Discord profile, ensuring continuity and progress tracking in the game."
+            },
+            {
+                "dataCollection": "Mutual Servers with the Bot",
+                "purpose": "The Bot keeps track of the mutual servers the user is in with it. This data is used to notify the user what servers have a visiting Merchant, as well as other server specific events."
+            },
+            {
+                "dataCollection": "Other Data",
+                "purpose": "Additionally, anonymous data on command usage and other interactions may be collected to improve turnipRPG's features and user experience."
+            }
+        ]
+    },
+    {
+        "title": "Data Retention",
+        "policies": [
+            "turnipRPG profiles associated with Discord IDs are retained indefinitely, unless a user explicitly requests deletion of their data."
+        ]
+    },
+    {
+        "title": "Personal Information",
+        "policies": [
+            "turnipRPG does not collect or store any personal information such as usernames, email addresses, or other identifiable data."
+        ]
+    },
+    {
+        "title": "Data Sharing",
+        "policies": [
+            "User data collected by turnipRPG is strictly confidential and only accessible to the turnipRPG developers. We do not share, sell, or transfer this data to any third parties or services."
+        ]
+    },
+    {
+        "title": "Data Protection",
+        "policies": [
+            "All user data is stored in an encrypted and secure database, safeguarding it from unauthorized access or breaches."
+        ]
+    },
+    {
+        "title": "Data Deletion",
+        "policies": [
+            "Users have the right to request the deletion of their turnipRPG profile and associated data. To initiate a data deletion request, users can contact BradyDaLlama in the support server. Please note that data deletion is permanent and cannot be undone."
+        ]
+    },
+    {
+        "title": "Changes to Privacy policies",
+        "policies": [
+            "The developers of turnipRPG may update this Privacy policies from time to time to reflect changes in data handling practices or legal requirements. It is the user's responsibility to review the privacy policies from time to time to understand the most up to date version."
+        ]
+    },
+    {
+        "title": "Consent",
+        "policies": [
+            "By using turnipRPG, you consent to the collection and use of your Discord ID and anonymous interaction data as described in this Privacy policies."
+        ]
+    },
+    {
+        "title": "Contact Information",
+        "policies": [
+            "If you have any questions, concerns, or requests regarding your privacy or the data collected by turnipRPG, please contact a staff member in the support server."
+        ]
+    }
+]
