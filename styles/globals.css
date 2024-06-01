@@ -40,6 +40,10 @@ button {
     --r4: #ffb978;
     --r5: #9c62ff;
     --r6: #ffb6dc;
+
+    --default-primary: #5865f2;
+    --default-info: #ff9d71;
+    --default-warning: #ffdfb0;
 }
 
 @media (prefers-color-scheme: light) {
