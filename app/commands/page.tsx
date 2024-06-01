@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Autocomplete, AutocompleteItem } from '@nextui-org/react';
+
 import '@/styles/commands.css';
 
 import commands from '@/data/commands.json';
@@ -12,6 +15,7 @@ export default function Commands() {
     return (
         <>
             <h1 className="commands-title text-xl lg:text-4xl mb-8">Commands</h1>
+
             <div className="commands-container">
                 {commands.map((command: { name: string; description: string; tags?: string[] }, index) => (
                     <div className="command">

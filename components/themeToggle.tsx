@@ -16,6 +16,12 @@ const themes = {
 
 function toggleTheme() {
     const root = document.documentElement;
+    if (
+        document.getElementsByClassName('hide-theme-icon').length > 0 ||
+        document.getElementsByClassName('show-theme-icon').length > 0
+    ) {
+        return;
+    }
     const currentTheme = root.getAttribute('data-theme');
     const newTheme = themes[currentTheme as 'dark' | 'light'];
 
@@ -32,9 +38,11 @@ function toggleTheme() {
     hideIcon?.classList.add('hide-theme-icon');
 
     setTimeout(() => {
+        showIcon?.classList.remove('show-theme-icon');
         showIcon?.classList.remove('hide-theme-icon');
+        hideIcon?.classList.remove('hide-theme-icon');
         hideIcon?.classList.add('hidden-theme-icon');
-    }, 2000);
+    }, 1800);
 }
 
 export default function ThemeToggle() {

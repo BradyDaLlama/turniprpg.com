@@ -22,168 +22,102 @@
     color: var(--text);
 }
 
-.info {
-    margin: 0 auto;
-    text-align: center;
+.server-list {
+    margin-top: 128px;
 }
 
-.serverheading {
-    font-size: 48px;
-    text-decoration: underline;
-}
-
-.serverdescription {
-    font-size: 36px;
-}
-
-.servercard,
-.profile {
-    background-color: var(--gradient1);
-    background: linear-gradient(45deg, var(--gradient1), var(--gradient2));
-    width: 320px;
-    height: 380px;
-    margin: 32px;
-    border-radius: 18px;
-    display: inline-block;
-}
-
-.profile {
-    width: fit-content;
-    height: fit-content;
-    padding: 32px;
-}
-
-.stat {
-    display: inline;
-    margin: 12px;
-}
-
-.barstat {
-    font-size: 32px;
-    margin-right: 16px;
-}
-
-.staticon {
-    margin-right: 16px;
-}
-
-.profile div span {
+.server-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-}
-
-.profile span {
-    display: block;
-    align-items: center;
-}
-
-.badge {
-    margin-right: 8px;
-}
-
-.badge:hover {
-    transform: translateY(-5px);
-    transition: 0.2s;
-}
-
-.bar {
-    display: inline-block;
-    height: 32px;
-    width: 360px;
-    background-color: var(--embed);
-    border-radius: 16px;
-}
-
-.barxp,
-.barhealth,
-.barenergy {
-    height: 16px;
-    margin: 8px;
-    border-radius: 12px;
-}
-
-.barhealth {
-    /*#ffbac4 but with a gradient*/
-    background: linear-gradient(45deg, #eb5a81, #ffbac4);
-}
-
-.barenergy {
-    /*#b2fefa but with a gradient*/
-    background: linear-gradient(45deg, #b30956, #f5475b);
-}
-
-.servericon {
-    height: 128px;
-    width: 128px;
-    border-radius: 50%;
-    background-color: var(--embed);
-    display: block;
-    margin: 0 auto;
-    margin-top: 72px;
-}
-
-.abbreviatedname {
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    font-size: 64px;
+    gap: 48px;
+
+    margin-top: 32px;
 }
 
-.servername {
-    display: block;
-    font-size: 32px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    margin: 0 auto; /* Horizontally center the text within its container */
-    width: 260px; /* Set a fixed width for the container */
-    margin-top: 16px;
-}
+.server-card {
+    background-color: var(--embed);
+    width: 220px;
+    height: 280px;
+    border-radius: 12px;
 
-.invite {
-    height: 30px;
-    width: 180px;
-    font-size: 24px;
-}
-
-.servercard:hover {
-    transform: translateY(-15px);
     transition: 0.2s;
 }
 
-.servercard:has(.current) {
+.server-card p {
+    display: block;
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.server-card:hover {
+    background-color: var(--embed-hover);
+    transform: translateY(-15px);
+}
+
+.server-card:has(.current) {
     pointer-events: none;
 }
 
-@media (max-width: 1000px) {
+.server-heading {
+    font-size: 32px;
+    text-decoration: underline;
+    margin-bottom: 8px;
+}
+
+.server-description {
+    font-size: 20px;
+    white-space: wrap;
+}
+
+.server-icon {
+    height: 112px;
+    width: 112px;
+    border-radius: 50%;
+    background-color: var(--bg);
+    margin: 0 auto;
+    margin-top: 32px;
+
+    font-size: 64px;
+}
+
+.server-name {
+    display: block;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
     .userbar {
         padding: 12px;
         margin-top: 58px;
     }
 
-    .profilepicture {
-        width: 32;
-        height: 32;
+    .server-container {
+        gap: 24px;
     }
 
-    .name {
-        font-size: 32px;
+    .server-card {
+        width: 160px;
+        height: 200px;
     }
 
-    .servercard,
-    .profile {
-        width: 240px;
-        height: 280px;
-        margin: 16px;
+    .server-icon {
+        height: 72px;
+        width: 72px;
     }
 
-    .serverheading {
-        font-size: 32px;
+    .server-name {
+        font-size: 18px;
     }
 
-    .serverdescription {
-        font-size: 24px;
+    .server-card p {
+        font-size: 12px;
     }
 }

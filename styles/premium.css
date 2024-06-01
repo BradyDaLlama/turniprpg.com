@@ -41,8 +41,8 @@
     font-size: 24px;
 }
 
-.option ul {
-    margin-top: 18px;
+.option .note {
+    font-size: 18px;
 }
 
 .price {

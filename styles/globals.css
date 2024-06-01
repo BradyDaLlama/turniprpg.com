@@ -80,7 +80,6 @@ body {
     color: var(--text);
     background-color: var(--bg);
     font-family: 'Outfit-regular', sans-serif;
-    min-height: 100vh;
     margin: 0 auto;
 
     padding-top: 72px;
@@ -102,10 +101,6 @@ header {
 footer {
     color: var(--text);
     background-color: var(--embed);
-
-    left: 0;
-    right: 0;
-    bottom: 0;
     text-align: center;
 
     padding-bottom: 96px;
@@ -158,11 +153,11 @@ li:before {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--embed);
+    background: var(--bg);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--brand2);
+    background-color: var(--embed-hover);
     border-radius: 10px;
 }
 
@@ -571,7 +566,7 @@ li:before {
 
     .footer-container {
         flex-direction: column;
-        max-width: fit-content;
+        min-width: fit-content;
     }
 }
 

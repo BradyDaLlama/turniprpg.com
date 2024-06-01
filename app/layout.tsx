@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className="antialiased">
                 <Providers>
                     <Header />
-                    <main>{children}</main>
+                    <main className="min-h-screen">{children}</main>
                     <Footer />
                 </Providers>
             </body>

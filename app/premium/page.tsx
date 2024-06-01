@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getSession } from 'next-auth/react';
 import '@/styles/premium.css';
 
 import { Code } from '@nextui-org/react';
@@ -7,9 +6,6 @@ import { Code } from '@nextui-org/react';
 import perks from '@/data/perks.json';
 
 export default async function Premium() {
-    const session = await getSession();
-    const isLoggedin = session ? true : false;
-
     return (
         <>
             <div className="options-container">
@@ -19,12 +15,14 @@ export default async function Premium() {
                         <Code className="price">$3.49</Code>/ month
                     </p>
 
-                    {isLoggedin ? (
+                    <p className="note"> currently does not provide perks</p>
+
+                    {false ? (
                         <a className="glow-button" href="https://buy.stripe.com/3cs29f3fR16O8ZW145">
                             Get Premium
                         </a>
                     ) : (
-                        <a className="glow-button" href="/api/auth/signin">
+                        <a className="glow-button" href="/">
                             Log in to get Premium
                         </a>
                     )}
@@ -33,6 +31,8 @@ export default async function Premium() {
                 <div className="option">
                     <h1>turnipRPG tip</h1>
                     <p>custom amount</p>
+
+                    <p className="note"> does not provide perks</p>
 
                     <a className="glow-button" href="https://donate.stripe.com/14keW17w7dTAcc83cc">
                         Give a tip
