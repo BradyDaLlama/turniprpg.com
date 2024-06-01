@@ -80,7 +80,7 @@ export default function Commands() {
     }
 
     React.useEffect(() => {
-        fetch(`http://localhost:3000/api/bot/commands`).then((response) => {
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/commands`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
                     setCommands(data.flatMap(processCommands));
