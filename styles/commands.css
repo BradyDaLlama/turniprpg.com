@@ -1,23 +1,48 @@
+.commands-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 16px;
+}
+
+.search-tools {
+    align-items: center;
+    position: relative;
+    display: block;
+}
+
+.search-tags {
+    position: absolute;
+    align-self: center;
+    right: 8px;
+    top: 0;
+    transform: translateY(35%);
+
+    display: flex;
+    gap: 8px;
+}
+
+.command-search {
+    margin: 16px 0;
+}
+
 .commands-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: left;
     gap: 16px;
-
-    position: relative;
-    z-index: 0;
 }
 
 .command {
     margin: 0px auto;
-    margin-bottom: 16px;
-    padding: 6px;
+    padding: 4px;
     text-align: left;
 
     color: var(--text);
     background-color: var(--embed);
-    border-radius: 28px;
+    padding: 8px;
+    border-radius: 12px;
 
     width: 400px;
 }
@@ -26,39 +51,39 @@
     background-color: var(--embed-hover);
 }
 
+.command:hover .command-name {
+    background-color: var(--cmdFont);
+    color: var(--cmdBg);
+}
+
+.command-name {
+    color: var(--cmdFont);
+    font-size: 22px;
+    font-weight: 600;
+
+    padding: 2px 14px;
+    border-radius: 10px 28px 28px 10px;
+    margin-bottom: 6px;
+    display: inline-block;
+    background-color: var(--cmdBg);
+}
+
+.command-description {
+    font-size: 16px;
+}
+
 .command-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.command-name {
-    color: var(--cmdFont);
-    font-size: 28px;
-    font-weight: 600;
-
-    padding: 2px 14px;
-    margin: 6px;
-    border-radius: 28px;
-    display: inline-block;
-    background-color: var(--cmdBg);
+.command-tag:hover {
+    cursor: pointer;
 }
 
-.command-description {
-    margin: 8px;
-    font-size: 24px;
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .command {
         width: 100%;
-    }
-
-    .command-name {
-        font-size: 24px;
-    }
-
-    .command-description {
-        font-size: 22px;
     }
 }
