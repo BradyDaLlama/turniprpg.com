@@ -44,8 +44,8 @@ export default function Commands() {
                     ...commands,
                     ...processCommands({
                         ...option,
-                        options: option?.options?.filter((option: CommandType) => option.type <= 2),
-                        args: option.options?.filter((option: CommandType) => option.type > 2),
+                        options: option?.options?.filter((option: CommandType) => option.type <= 2) as [],
+                        args: option.options?.filter((option: CommandType) => option.type > 2) as [],
                         name: `${command.name}!${option.name}`,
                     }),
                 ];
@@ -138,8 +138,8 @@ export default function Commands() {
                     .map((command: CommandType, index) => {
                         if (
                             (!`/${command.name.replace('!', '')}`.toLowerCase().includes(searchCommand.toLowerCase()) &&
-                                !command.description.toLowerCase().includes(searchCommand.toLowerCase())) ||
-                            (searchTags.length > 0 && !command?.tags?.some((tag) => searchTags.includes(tag)))
+                                !command.description.toLowerCase().includes(searchCommand.toLowerCase()))
+                            //|| (searchTags.length > 0 && !command?.tags?.some((tag) => searchTags.includes(tag)))
                         ) {
                             return null;
                         }
