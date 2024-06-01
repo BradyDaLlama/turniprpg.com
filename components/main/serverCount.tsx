@@ -7,7 +7,7 @@ export default function ServerCount() {
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/stats`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
-                    setServerCount(data.server_count);
+                    setServerCount(data.approximate_guild_count);
                 });
             }
         });
