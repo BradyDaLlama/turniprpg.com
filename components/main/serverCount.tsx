@@ -4,12 +4,7 @@ import React from 'react';
 export default function ServerCount() {
     const [serverCount, setServerCount] = React.useState(0);
     React.useEffect(() => {
-        fetch('https://top.gg/api/bots/882808942881816577/stats', {
-            method: 'GET',
-            headers: {
-                Authorization: process.env.NEXT_PUBLIC_TOPGG_API_KEY || '',
-            },
-        }).then((response) => {
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/stats`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
                     setServerCount(data.server_count);
