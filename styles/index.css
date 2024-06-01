@@ -5,17 +5,13 @@
 .titleLogo {
     display: inline-block;
     pointer-events: none;
-    margin-bottom: -32px;
+    margin: 12px 0px;
+    margin-bottom: 24px;
 }
 
 .hook {
-    margin: 12px 0px 48px 0px;
-}
-
-.description-container {
-    margin: 0 auto;
-    align-items: center;
-    width: 80%;
+    font-size: 24px;
+    margin-bottom: 24px;
 }
 
 .feature {
@@ -23,8 +19,6 @@
     padding: 18px 24px;
     margin-bottom: 24px;
     text-align: center;
-
-    box-sizing: border-box;
 }
 
 .feature h1 {
@@ -36,6 +30,8 @@
 .feature-container {
     display: flex;
     gap: 64px;
+    margin: 0 auto;
+    align-items: flex-start;
     margin-bottom: 32px;
 }
 
@@ -45,55 +41,20 @@
     flex: 1;
 }
 
-.description-container img {
-    background-color: var(--embed);
-    border-radius: 50%;
-}
-
 .feature-container li {
     font-size: 24px;
     margin-bottom: 16px;
 }
 
-.fishingpreview {
+.description-container {
+    margin: 0 auto;
+    align-items: center;
     width: 80%;
-    height: auto;
-    border-radius: 12px;
 }
 
-.feature table .fishing {
-    border-radius: 50px;
-    height: 48px;
-    width: auto;
-}
-.fishingpreview {
-    display: inline-block;
-    background-color: #313338;
-    padding: 16px;
-    position: relative;
-    top: 0;
-    left: 0px;
-}
-
-.fishingbuttons {
-    position: relative;
-    top: -24px;
-    left: 0px;
-}
-
-.feature table .fishingbuttons {
-    width: 320px;
-}
-
-.fishingheader {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-.fishing {
-    position: absolute;
-    top: 90px;
-    left: 156px;
+.description-container img {
+    background-color: var(--embed);
+    border-radius: 50%;
 }
 
 /* generally small screens */
@@ -101,5 +62,9 @@
     .feature-container {
         flex-direction: column;
         gap: 24px;
+    }
+
+    .hook {
+        font-size: 16px;
     }
 }

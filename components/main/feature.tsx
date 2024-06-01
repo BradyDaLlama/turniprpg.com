@@ -10,7 +10,7 @@ export default function Features(props: { title: string; description: string[]; 
     const largeScreen = useLargeScreen();
 
     const items = [
-        <Image src={`/images/bot/${filePath}.png`} height={400} width={400} alt={title} />,
+        <img className="feature-image" src={`/images/bot/${filePath}.png`} height={400} width={400} alt={title} />,
 
         <ul>
             {description.map((desc, index) => (

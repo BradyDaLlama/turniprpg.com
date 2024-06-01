@@ -8,7 +8,7 @@ export default function Description(props: { image: string; description: string;
     const largeScreen = useLargeScreen();
 
     const items = [
-        <img src={`/images/bot/${image}.png`} height={320} width={320} alt={image} />,
+        <img className="description-img" src={`/images/bot/${image}.png`} height={320} width={320} alt={image} />,
         <p className="description text-xl lg:text-3xl">{description}</p>,
     ];
 
