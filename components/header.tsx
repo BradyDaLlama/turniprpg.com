@@ -3,9 +3,13 @@ import React from 'react';
 
 import MenuToggle from './menuToggle';
 import ThemeToggle from './themeToggle';
+import { Avatar } from '@nextui-org/react';
+
+import getUser from '@/app/api/discord/getUser';
 
 export default function Header() {
-    let pfp = <Image className="pfp discordpfp" src="/images/icons/discord.png" alt="Discord Logo" width={36} height={36} />;
+    const user = getUser();
+
     return (
         <>
             <header>
@@ -39,7 +43,7 @@ export default function Header() {
                                 },
                                 {
                                     name: 'Dashboard',
-                                    href: '/',
+                                    href: `${user ? '/dashboard' : '/'}`,
                                     className: 'fourth',
                                 },
                                 {
@@ -57,22 +61,25 @@ export default function Header() {
                             <li>
                                 <div className="login-items">
                                     <span>
-                                        {true &&
-                                            ((
-                                                <>
-                                                    <a className="glow-button discord-login" href={'/'}>
-                                                        Log in
-                                                    </a>
-                                                </>
-                                            ) || (
-                                                <>
-                                                    <a className="glow-button discord-login" href={`/api/auth/signout`}>
-                                                        Log out
-                                                    </a>
-                                                </>
-                                            ))}
+                                        {(!user && (
+                                            <>
+                                                <a className="glow-button discord-login" href={'/'}>
+                                                    Log in
+                                                </a>
+                                            </>
+                                        )) || (
+                                            <>
+                                                <a className="glow-button discord-login" href={`/`}>
+                                                    Log out
+                                                </a>
+                                            </>
+                                        )}
                                     </span>
-                                    {pfp}
+                                    <Avatar
+                                        src={user ? user.avatar : '/images/icons/discord.png'}
+                                        className={`pfp${user ? '' : ' discordpfp'}`}
+                                        name={user ? user.username : ''}
+                                    />
                                 </div>
                             </li>
                         </ul>

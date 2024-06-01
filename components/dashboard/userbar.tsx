@@ -1,22 +1,17 @@
-'use client';
-import { useSession } from 'next-auth/react';
 import React from 'react';
 
 import { Avatar } from '@nextui-org/react';
 
-import '@/styles/dashboard.css';
+import getUser from '@/app/api/discord/getUser';
 
 export default function UserBar() {
-    const user = {
-        username: 'test',
-        avatar: '',
-    };
+    const user = getUser() || { id: '', username: '', avatar: '' };
 
     return (
         <span className="userbar">
             <Avatar
                 className="avatar"
-                src={user?.avatar || ''}
+                src={user.avatar}
                 name={user.username}
                 size="lg"
                 showFallback
