@@ -6,11 +6,13 @@
     },
     {
         "name": "battle",
-        "description": "Engage in battles against fearsome monsters to earn coins, obtain valuable items, and gain experience points to level up."
+        "description": "Engage in battles against fearsome monsters to earn coins, obtain valuable items, and gain experience points to level up.",
+        "tags": ["adventure"]
     },
     {
         "name": "bulkinfo",
-        "description": "Retrieve information about all or filtered items and show their name, cost, and ID."
+        "description": "Retrieve information about all or filtered items and show their name, cost, and ID.",
+        "tags": ["info"]
     },
     {
         "name": "config",
@@ -34,15 +36,18 @@
     },
     {
         "name": "farm view",
-        "description": "View and manage your farmland, monitoring the progress of crops and choosing what to grow next."
+        "description": "View and manage your farmland, monitoring the progress of crops and choosing what to grow next.",
+        "tags": ["items"]
     },
     {
         "name": "farm plant",
-        "description": "Select a seed and plant them on your farm."
+        "description": "Select a seed and plant them on your farm.",
+        "tags": ["items"]
     },
     {
         "name": "fish",
-        "description": "Engage in the art of fishing to catch a variety of aquatic creatures, providing you with a source of food and other valuable items."
+        "description": "Engage in the art of fishing to catch a variety of aquatic creatures, providing you with a source of food and other valuable items.",
+        "tags": ["adventure"]
     },
     {
         "name": "help",
@@ -61,50 +66,62 @@
     },
     {
         "name": "invite",
-        "description": "Obtain a link that allows you to invite the turnipRPG bot to other Discord servers, enabling more users to join the fun."
+        "description": "Obtain a link that allows you to invite the turnipRPG bot to other Discord servers, enabling more users to join the fun.",
+        "tags": ["info"]
     },
     {
         "name": "item",
-        "description": "Retrieve detailed information about a specific item, displaying things such as it's rarity, description, and uses for the item."
+        "description": "Retrieve detailed information about a specific item, displaying things such as it's rarity, description, and uses for the item.",
+        "tags": ["info"]
     },
     {
         "name": "leaderboard",
-        "description": "Check the rankings on the global or server specific leaderboards, comparing your performance in terms of coins or experience points."
+        "description": "Check the rankings on the global or server specific leaderboards, comparing your performance in terms of coins or experience points.",
+        "tags": ["info"]
     },
     {
         "name": "menu",
-        "description": "Open the comprehensive menu system, allowing you to access various game features, settings, and commands."
+        "description": "Open the comprehensive menu system, allowing you to access various game features, settings, and commands.",
+        "tags": ["info"]
     },
     {
         "name": "monster",
-        "description": "Retrieve detailed information about different monsters in the turnipRPG world, learning about their strengths, weaknesses, and potential rewards."
+        "description": "Retrieve detailed information about different monsters in the turnipRPG world, learning about their strengths, weaknesses, and potential rewards.",
+        "tags": ["info"]
     },
     {
         "name": "play",
-        "description": "Create a profile for yourself and begin your turnipRPG journey, immersing yourself in the exciting and dynamic virtual world."
+        "description": "Create a profile for yourself and begin your turnipRPG journey, immersing yourself in the exciting and dynamic virtual world.",
+        "tags": ["user"]
     },
     {
         "name": "preferences",
-        "description": "Set and customize user preferences, tailoring your turnipRPG experience to your personal preferences and playstyle."
+        "description": "Set and customize user preferences, tailoring your turnipRPG experience to your personal preferences and playstyle.",
+        "tags": ["user"]
     },
     {
         "name": "profile",
-        "description": "View the profile of yourself or another user, gaining insights into achievements, progress, and character information."
+        "description": "View the profile of yourself or another user, gaining insights into achievements, progress, and character information.",
+        "tags": ["user"]
     },
     {
         "name": "quests",
-        "description": "View and manage your quests, tracking your objectives, rewards, and progress as you complete various challenges."
+        "description": "View and manage your quests, tracking your objectives, rewards, and progress as you complete various challenges.",
+        "tags": ["user"]
     },
     {
         "name": "sell",
-        "description": "Sell unwanted items from your inventory to earn valuable coins."
+        "description": "Sell unwanted items from your inventory to earn valuable coins.",
+        "tags": ["items"]
     },
     {
         "name": "shop",
-        "description": "Explore each server's shop to view and purchase a variety of items and resources to enhance your gameplay."
+        "description": "Explore each server's shop to view and purchase a variety of items and resources to enhance your gameplay.",
+        "tags": ["items"]
     },
     {
         "name": "vote",
-        "description": "Show your support for turnipRPG by participating in community voting. Your votes help improve the bot and can contribute to its ongoing development."
+        "description": "Show your support for turnipRPG by participating in community voting. Your votes help improve the bot and can contribute to its ongoing development.",
+        "tags": ["info"]
     }
 ]
