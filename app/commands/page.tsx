@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-
-import { Input, Chip, Code, Tooltip, Popover, PopoverTrigger, PopoverContent, CircularProgress } from '@nextui-org/react';
-
+import { Input, Chip, Code, CircularProgress } from '@nextui-org/react';
 import useLargeScreen from '@/components/hooks/useLargeScreen';
+import Tooltip from '@/components/tooltip';
 
 import '@/styles/commands.css';
 
@@ -165,43 +164,22 @@ export default function Commands() {
                         return (
                             <div className="command">
                                 <div className="command-chips">
-                                    {command.name.split('!').map((name, index) => {
-                                        let items = {
-                                            note: `${index === 0 ? 'base command' : 'subcommand'}`,
-                                            content: (
-                                                <h1
-                                                    className={
-                                                        command.type > 2 && index === command.name.split('!').length - 1
-                                                            ? `arg`
-                                                            : `command-name${index === command.name.split('!').length - 1 ? ' last-name' : ''}`
-                                                    }
-                                                >
-                                                    {getCommandPrefix(command.type, index)}
-                                                    {name}
-                                                </h1>
-                                            ),
-                                        };
-                                        if (isLargeScreen) {
-                                            return (
-                                                <Tooltip showArrow={true} color="primary" closeDelay={100} content={items.note}>
-                                                    {items.content}
-                                                </Tooltip>
-                                            );
-                                        }
-                                        return (
-                                            <Popover key={name} color="primary" placement="top" showArrow={true}>
-                                                <PopoverTrigger>{items.content}</PopoverTrigger>
-                                                <PopoverContent>{items.note}</PopoverContent>
-                                            </Popover>
-                                        );
-                                    })}
+                                    {command.name.split('!').map((name, index) => (
+                                        <Tooltip note={`${index === 0 ? 'base command' : 'subcommand'}`}>
+                                            <h1
+                                                className={
+                                                    command.type > 2 && index === command.name.split('!').length - 1
+                                                        ? `arg`
+                                                        : `command-name${index === command.name.split('!').length - 1 ? ' last-name' : ''}`
+                                                }
+                                            >
+                                                {getCommandPrefix(command.type, index)}
+                                                {name}
+                                            </h1>
+                                        </Tooltip>
+                                    ))}
                                     {command.args?.map((arg: CommandType) => (
-                                        <Tooltip
-                                            showArrow={true}
-                                            color="primary"
-                                            closeDelay={100}
-                                            content={`argument: ${arg.description}`}
-                                        >
+                                        <Tooltip note={`argument: ${arg.description}`}>
                                             <Code className="arg" color="primary">
                                                 {arg.name}
                                             </Code>
