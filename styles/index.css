@@ -22,32 +22,39 @@
 }
 
 .feature h1 {
-    font-size: 40px;
+    font-size: 48px;
     margin: 0;
     margin-bottom: 24px;
 }
 
 .feature-container {
     display: flex;
-    gap: 64px;
-    margin: 0 auto;
+    gap: 48px;
     align-items: flex-start;
-    margin-bottom: 32px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 24px;
 }
 
 .feature-container img {
     padding: 4px;
     border-radius: 12px;
+}
+
+.feature-container ul {
+    min-width: 300px;
     flex: 1;
 }
 
-.feature-container li {
+.feature-container li,
+.feature-container p {
     font-size: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .description-container {
     margin: 0 auto;
+    margin-bottom: 48px;
     align-items: center;
     width: 80%;
 }
@@ -64,7 +71,7 @@
         gap: 24px;
     }
 
-    .hook {
-        font-size: 16px;
+    .feature-image {
+        margin: 0 auto;
     }
 }
