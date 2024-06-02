@@ -23,15 +23,19 @@
 
 .command-search {
     margin: 16px 0;
+    z-index: 1;
+}
+
+.loading {
+    margin: 0 auto;
 }
 
 .commands-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
     justify-content: center;
     text-align: left;
-    gap: 16px;
 }
 
 .command {
@@ -44,9 +48,8 @@
     padding: 8px;
     border-radius: 12px;
 
-    width: 400px;
+    width: 100%;
 }
-
 .command:hover {
     background-color: var(--embed-hover);
 }
@@ -73,6 +76,7 @@
 
 .arg {
     align-self: center;
+    color: var(--cmdFont);
 }
 
 .last-name {
@@ -98,6 +102,9 @@
 }
 
 @media (max-width: 1024px) {
+    .search-tools {
+        margin-top: 48px;
+    }
     .command {
         width: 100%;
     }

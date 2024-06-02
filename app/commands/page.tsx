@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
 
-import { Input, Chip, Code, Tooltip, CircularProgress } from '@nextui-org/react';
+import { Input, Chip, Code, Tooltip, Popover, PopoverTrigger, PopoverContent, CircularProgress } from '@nextui-org/react';
+
+import useLargeScreen from '@/components/hooks/useLargeScreen';
 
 import '@/styles/commands.css';
 
@@ -26,10 +28,12 @@ type CommandType = {
     integration_types: [];
     options: [] | null;
     nsfw: boolean;
-    args: [] | null;
+    args: CommandType[] | null;
+    tags: string[] | null;
 };
 
 export default function Commands() {
+    const isLargeScreen = useLargeScreen();
     const [commands, setCommands] = React.useState([]);
     const [searchCommand, setCommand] = React.useState('');
     const [searchTags, setTags] = React.useState([] as string[]);
@@ -37,9 +41,20 @@ export default function Commands() {
     function processCommands(command: CommandType): CommandType[] {
         let commands = [{ ...command, name: command.name }];
 
+        let hasSubcommands = false;
         if (command.options) {
             for (let option of command.options as CommandType[]) {
-                if (option.type > 2) continue;
+                if (option.type > 2) {
+                    commands = [
+                        {
+                            ...command,
+                            name: `${command.name}`,
+                            args: [option] as CommandType[],
+                        },
+                    ];
+                    continue;
+                }
+                hasSubcommands = true;
                 commands = [
                     ...commands,
                     ...processCommands({
@@ -50,6 +65,10 @@ export default function Commands() {
                     }),
                 ];
             }
+        }
+
+        if (hasSubcommands) {
+            commands = commands.filter((cmd) => cmd.name !== command.name);
         }
 
         return commands;
@@ -131,14 +150,14 @@ export default function Commands() {
                     ))}
                 </div>
             </div>
+            {!(commands.length > 0) && <CircularProgress className="loading" aria-label="Fetching commands..." />}
             <div className="commands-container">
-                {!(commands.length > 0) && <CircularProgress aria-label="Fetching commands..." />}
                 {commands
                     .sort((a: CommandType, b: CommandType) => a.type - b.type || a.name.localeCompare(b.name))
                     .map((command: CommandType, index) => {
                         if (
-                            (!`/${command.name.replace('!', '')}`.toLowerCase().includes(searchCommand.toLowerCase()) &&
-                                !command.description.toLowerCase().includes(searchCommand.toLowerCase()))
+                            !`/${command.name.replace('!', '')}`.toLowerCase().includes(searchCommand.toLowerCase()) &&
+                            !command.description.toLowerCase().includes(searchCommand.toLowerCase())
                             //|| (searchTags.length > 0 && !command?.tags?.some((tag) => searchTags.includes(tag)))
                         ) {
                             return null;
@@ -146,25 +165,36 @@ export default function Commands() {
                         return (
                             <div className="command">
                                 <div className="command-chips">
-                                    {command.name.split('!').map((name, index) => (
-                                        <Tooltip
-                                            showArrow={true}
-                                            color="primary"
-                                            closeDelay={100}
-                                            content={`${index === 0 ? 'base command' : 'subcommand'}`}
-                                        >
-                                            <h1
-                                                className={
-                                                    command.type > 2 && index === command.name.split('!').length - 1
-                                                        ? `arg`
-                                                        : `command-name${index === command.name.split('!').length - 1 ? ' last-name' : ''}`
-                                                }
-                                            >
-                                                {getCommandPrefix(command.type, index)}
-                                                {name}
-                                            </h1>
-                                        </Tooltip>
-                                    ))}
+                                    {command.name.split('!').map((name, index) => {
+                                        let items = {
+                                            note: `${index === 0 ? 'base command' : 'subcommand'}`,
+                                            content: (
+                                                <h1
+                                                    className={
+                                                        command.type > 2 && index === command.name.split('!').length - 1
+                                                            ? `arg`
+                                                            : `command-name${index === command.name.split('!').length - 1 ? ' last-name' : ''}`
+                                                    }
+                                                >
+                                                    {getCommandPrefix(command.type, index)}
+                                                    {name}
+                                                </h1>
+                                            ),
+                                        };
+                                        if (isLargeScreen) {
+                                            return (
+                                                <Tooltip showArrow={true} color="primary" closeDelay={100} content={items.note}>
+                                                    {items.content}
+                                                </Tooltip>
+                                            );
+                                        }
+                                        return (
+                                            <Popover key={name} color="primary" placement="top" showArrow={true}>
+                                                <PopoverTrigger>{items.content}</PopoverTrigger>
+                                                <PopoverContent>{items.note}</PopoverContent>
+                                            </Popover>
+                                        );
+                                    })}
                                     {command.args?.map((arg: CommandType) => (
                                         <Tooltip
                                             showArrow={true}
@@ -172,8 +202,29 @@ export default function Commands() {
                                             closeDelay={100}
                                             content={`argument: ${arg.description}`}
                                         >
-                                            <Code className="arg">{arg.name}</Code>
+                                            <Code className="arg" color="primary">
+                                                {arg.name}
+                                            </Code>
                                         </Tooltip>
+                                    ))}
+                                    {command?.tags?.map((tag: string) => (
+                                        <Chip
+                                            key={tag}
+                                            color={
+                                                (chips[tag as keyof typeof chips] as
+                                                    | 'primary'
+                                                    | 'warning'
+                                                    | 'success'
+                                                    | 'default'
+                                                    | 'secondary'
+                                                    | 'danger'
+                                                    | undefined) || 'default'
+                                            }
+                                            className="command-tag"
+                                            onClick={() => setTags(Array.from(new Set([...searchTags, tag])))}
+                                        >
+                                            {tag}
+                                        </Chip>
                                     ))}
                                 </div>
                                 <p className="command-description">{command.description}</p>
