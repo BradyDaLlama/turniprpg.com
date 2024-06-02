@@ -2,32 +2,34 @@ h1 {
     font-size: 48px;
 }
 
-h1,
-h2,
-p,
-.list-box,
-.data-table {
-    margin-bottom: 18px;
+.term :where(ol, h1, h2, p, .list-box, .data-table, li:not(:last-child)),
+.privacy-note {
+    margin-bottom: 24px;
 }
 
-h2 {
+.term :where(h2, h3) {
     text-align: left;
     text-decoration: underline;
     font-size: 24px;
 }
 
-p,
-li,
-.purpose {
+.term :where(li, .purpose),
+.privacy-note {
     font-size: 16px;
     text-align: left;
 }
 
-li:before {
+.term li:before {
     content: '';
     margin: 0px;
 }
 
+.term ol li {
+    list-style-type: decimal;
+    margin-left: 12px;
+}
+
+.term ol,
 .list-box,
 .data-table {
     border-left: 2px solid var(--gradient1);
@@ -40,6 +42,17 @@ li:before {
     flex-wrap: wrap;
 
     padding: 18px 0px;
+}
+
+.data-row:last-child {
+    padding-bottom: 0px;
+}
+
+.data-row:first-child {
+    padding-top: 0px;
+}
+
+.data-row:not(:last-child) {
     border-bottom: 1px solid var(--embed);
 }
 
@@ -51,6 +64,7 @@ li:before {
 
 .purpose {
     flex: 0.5;
+    margin: 0px;
 }
 
 @media (max-width: 1000px) {
@@ -60,7 +74,6 @@ li:before {
 
     .data-collection {
         align-self: flex-start;
-        margin-bottom: 12px;
         text-decoration: underline;
     }
 }

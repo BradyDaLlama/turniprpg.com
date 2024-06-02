@@ -15,9 +15,22 @@ export default function Terms() {
                         {index + 1}. {term.title}
                     </h2>
                     <ul className="list-box">
-                        {term.terms.map((term: string) => (
-                            <li>{term}</li>
-                        ))}
+                        {term.terms.map((term: string, index: number) => {
+                            const matches = term.match(/^\d+\..*/g);
+                            if (matches) {
+                                const items = term.split(/\d+\./g).map((item) => item.trim());
+                                items.shift();
+                                return (
+                                    <ol key={index}>
+                                        {items.map((item, itemIndex) => (
+                                            <li key={itemIndex}>{item}</li>
+                                        ))}
+                                    </ol>
+                                );
+                            } else {
+                                return <li key={index}>{term}</li>;
+                            }
+                        })}
                     </ul>
                 </div>
             ))}
