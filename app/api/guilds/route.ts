@@ -8,7 +8,7 @@ import UserProfile from '@/mongo/models/UserProfile';
 export async function GET(req: Request) {
     const oauth = new DiscordOauth2({
         clientId: process.env.DISCORD_BOT_ID,
-        clientSecret: process.env.DISCORD_BOT_TOKEN,
+        clientSecret: process.env.DISCORD_BOT_SECRET,
         redirectUri: `${process.env.NEXT_PUBLIC_API}/discord/`,
     });
 
