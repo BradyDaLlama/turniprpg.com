@@ -5,7 +5,11 @@ import { Code } from '@nextui-org/react';
 
 import perks from '@/data/perks.json';
 
+import getUser from '@/app/api/discord/getUser';
+
 export default async function Premium() {
+    const user = getUser();
+
     return (
         <>
             <div className="options-container">
@@ -17,7 +21,7 @@ export default async function Premium() {
 
                     <p className="note"> currently does not provide perks</p>
 
-                    {false ? (
+                    {user ? (
                         <a className="glow-button" href="https://buy.stripe.com/3cs29f3fR16O8ZW145">
                             Get Premium
                         </a>
