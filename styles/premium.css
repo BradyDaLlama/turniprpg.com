@@ -9,7 +9,7 @@
 .option {
     text-align: center;
     background: linear-gradient(45deg, var(--gradient1), var(--gradient2)); /* Add the background color here */
-    margin-top: 136px;
+    margin-top: 32px;
     border-radius: 12px;
     padding: 24px;
     width: 480px;
@@ -111,7 +111,7 @@
     pointer-events: none;
 }
 
-.glow-button {
+.option .glow-button {
     font-size: 18px;
     margin-top: 24px;
 }
