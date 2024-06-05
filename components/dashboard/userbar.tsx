@@ -4,7 +4,7 @@ import { Avatar } from '@nextui-org/react';
 
 import getUser from '@/app/api/discord/getUser';
 
-export default async function UserBar() {
+export default function UserBar() {
     const user = getUser() || { id: '', username: '', avatar: '' };
 
     return (

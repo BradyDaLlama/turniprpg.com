@@ -1,16 +1,25 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 
 import { Avatar } from '@nextui-org/react';
 
 import getGuilds from '@/app/api/getGuilds';
 
-export default async function ServerList() {
-    let guilds = await getGuilds();
+export default function ServerList() {
+    const [unfilteredGuilds, setGuilds] = useState([] as { id: string; name: string; icon: string }[]);
+    let guilds = null;
 
-    if (!Array.isArray(guilds)) guilds = [];
+    useEffect(() => {
+        const fetchGuilds = async () => {
+            const result = await getGuilds();
+            setGuilds(result);
+        };
 
-    if (guilds) {
-        guilds = guilds.filter((guild: any) => {
+        fetchGuilds();
+    }, []);
+
+    if (unfilteredGuilds.length > 0) {
+        guilds = unfilteredGuilds.filter((guild: any) => {
             return guild.permissions & 0x8 || guild.permissions & 0x20;
         });
     }

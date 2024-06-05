@@ -5,7 +5,7 @@ import DiscordOauth2 from 'discord-oauth2';
 import connect from '@/mongo/db';
 import UserProfile from '@/mongo/models/UserProfile';
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
     const oauth = new DiscordOauth2({
         clientId: process.env.DISCORD_BOT_ID,
         clientSecret: process.env.DISCORD_BOT_TOKEN,
