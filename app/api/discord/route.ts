@@ -2,6 +2,7 @@ import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
 import DiscordOauth2 from 'discord-oauth2';
 import UserProfile from '@/mongo/models/UserProfile';
+import connect from '@/mongo/db';
 
 export async function GET(req: Request) {
     const oauth = new DiscordOauth2({
@@ -43,6 +44,7 @@ export async function GET(req: Request) {
 
     //post the refresh token to the api route for saving it to the user's profile
     const refreshToken = data.refresh_token;
+    await connect();
     const userProfile = await UserProfile.findOne({ userID: user.id });
     if (userProfile) {
         userProfile.refreshToken = refreshToken;
