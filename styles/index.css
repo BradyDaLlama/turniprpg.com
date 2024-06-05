@@ -27,6 +27,11 @@
     margin-bottom: 24px;
 }
 
+.feature li:before {
+    content: '✦';
+    margin-right: 10px;
+}
+
 .feature-container {
     display: flex;
     gap: 48px;
