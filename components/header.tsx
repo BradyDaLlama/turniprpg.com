@@ -3,9 +3,26 @@ import React from 'react';
 
 import MenuToggle from './menuToggle';
 import ThemeToggle from './themeToggle';
+import HeaderDropdown from './headerDropdown';
+
+import getUser from '@/app/api/discord/getUser';
 
 export default function Header() {
-    let pfp = <Image className="pfp discordpfp" src="/images/icons/discord.png" alt="Discord Logo" width={36} height={36} />;
+    const user = getUser();
+
+    let pfp = (
+        <Image
+            className={`pfp${!user ? ' discordpfp' : ''}`}
+            src={
+                user?.avatar
+                    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`
+                    : '/images/icons/discord.png'
+            }
+            width={512}
+            height={512}
+            alt={user?.avatar ? user.username : 'Discord Logo'}
+        />
+    );
     return (
         <>
             <header>
@@ -39,7 +56,7 @@ export default function Header() {
                                 },
                                 {
                                     name: 'Dashboard',
-                                    href: '/',
+                                    href: '/dashboard',
                                     className: 'fourth',
                                 },
                                 {
@@ -57,22 +74,13 @@ export default function Header() {
                             <li>
                                 <div className="login-items">
                                     <span>
-                                        {true &&
-                                            ((
-                                                <>
-                                                    <a className="glow-button discord-login" href={'/'}>
-                                                        Log in
-                                                    </a>
-                                                </>
-                                            ) || (
-                                                <>
-                                                    <a className="glow-button discord-login" href={`/api/auth/signout`}>
-                                                        Log out
-                                                    </a>
-                                                </>
-                                            ))}
+                                        {(!user && (
+                                            <a className="discord-login" href={`/api/discord`}>
+                                                Log in
+                                            </a>
+                                        )) || <HeaderDropdown pfp={pfp} />}
                                     </span>
-                                    {pfp}
+                                    {!user && pfp}
                                 </div>
                             </li>
                         </ul>
