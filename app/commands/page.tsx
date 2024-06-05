@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Input, Chip, Code, CircularProgress } from '@nextui-org/react';
+import { Input, Chip, Code, Spinner } from '@nextui-org/react';
 import useLargeScreen from '@/components/hooks/useLargeScreen';
 import Tooltip from '@/components/tooltip';
 
@@ -48,7 +48,7 @@ export default function Commands() {
                         {
                             ...command,
                             name: `${command.name}`,
-                            args: [option] as CommandType[],
+                            args: command.options?.filter((option: CommandType) => option.type > 2) as [],
                         },
                     ];
                     continue;
@@ -149,7 +149,7 @@ export default function Commands() {
                     ))}
                 </div>
             </div>
-            {!(commands.length > 0) && <CircularProgress className="loading" aria-label="Fetching commands..." />}
+            {!(commands.length > 0) && <Spinner className="loading" aria-label="Fetching commands..." />}
             <div className="commands-container">
                 {commands
                     .sort((a: CommandType, b: CommandType) => a.type - b.type || a.name.localeCompare(b.name))
