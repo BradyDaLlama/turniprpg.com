@@ -4,6 +4,8 @@ import DiscordOauth2 from 'discord-oauth2';
 import UserProfile from '@/mongo/models/UserProfile';
 import connect from '@/mongo/db';
 
+export const maxDuration = 60;
+
 export async function GET(req: Request) {
     const oauth = new DiscordOauth2({
         clientId: process.env.DISCORD_BOT_ID,
@@ -30,7 +32,7 @@ export async function GET(req: Request) {
         },
         body: new URLSearchParams({
             client_id: process.env.DISCORD_BOT_ID!,
-            client_secret: process.env.DISCORD_BOT_TOKEN!,
+            client_secret: process.env.DISCORD_BOT_SECRET!,
             grant_type: 'authorization_code',
             code: code,
             redirect_uri: `${process.env.NEXT_PUBLIC_API}/discord/`,
