@@ -26,7 +26,7 @@ export async function GET(req: Request) {
         method: 'POST',
         body: new URLSearchParams({
             client_id: process.env.DISCORD_BOT_ID!,
-            client_secret: process.env.DISCORD_BOT_TOKEN!,
+            client_secret: process.env.DISCORD_BOT_SECRET!,
             grant_type: 'refresh_token',
             refresh_token: userProfile.refreshToken,
         }).toString(),
