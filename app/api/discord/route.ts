@@ -29,7 +29,7 @@ export async function GET(req: Request) {
         },
         body: new URLSearchParams({
             client_id: process.env.DISCORD_BOT_ID!,
-            client_secret: process.env.DISCORD_BOT_TOKEN!,
+            client_secret: process.env.DISCORD_BOT_SECRET!,
             grant_type: 'authorization_code',
             code: code,
             redirect_uri: `${process.env.NEXT_PUBLIC_API}/discord/`,
