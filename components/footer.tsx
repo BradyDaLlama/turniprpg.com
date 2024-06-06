@@ -21,7 +21,7 @@ const Footer = () => {
                     <User
                         name="Developed By"
                         description={
-                            <Link href="/" size="sm" isExternal>
+                            <Link href="/" size="sm">
                                 @bradydallama
                             </Link>
                         }
