@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Counter from '../counter';
 
 export default function ServerCount() {
     const [serverCount, setServerCount] = React.useState(0);
@@ -13,5 +14,9 @@ export default function ServerCount() {
         });
     }, []);
 
-    return serverCount ? <p className="hook">Used by {serverCount.toLocaleString()} servers!</p> : <p></p>;
+    return (
+        <p className="hook">
+            used by over <Counter value={serverCount || 0} className="hook" /> servers!
+        </p>
+    );
 }
