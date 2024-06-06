@@ -607,6 +607,7 @@ ul {
 @media (max-width: 1200px) {
     /* ------------- All for the navbar ---------------*/
     .navbar-links {
+        display: inline-block;
         position: absolute;
         padding: 24px 0px;
         width: 100%;
