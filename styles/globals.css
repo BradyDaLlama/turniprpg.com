@@ -177,6 +177,9 @@ ul {
 .navbar span,
 .navbar-links {
     display: flex;
+}
+
+.navbar-links {
     align-items: center;
 }
 
