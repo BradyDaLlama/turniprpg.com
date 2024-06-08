@@ -4,8 +4,6 @@ import DiscordOauth2 from 'discord-oauth2';
 import UserProfile from '@/mongo/models/UserProfile';
 import connect from '@/mongo/db';
 
-export const maxDuration = 60;
-
 export async function GET(req: Request) {
     const oauth = new DiscordOauth2({
         clientId: process.env.DISCORD_BOT_ID,
@@ -70,6 +68,7 @@ export async function GET(req: Request) {
             path: '/',
             sameSite: 'none',
             secure: true,
+            maxAge: 60 * 60 * 24 * 30,
         }
     );
 

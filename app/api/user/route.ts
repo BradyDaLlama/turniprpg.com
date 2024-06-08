@@ -1,15 +1,16 @@
-import { NextApiRequest } from 'next';
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 import connect from '@/mongo/db';
 import UserProfile from '@/mongo/models/UserProfile';
 
-export async function GET(req: NextRequest) {
-    if (!req.cookies.get?.('user')?.value) {
+export async function GET(req: Request) {
+    let params = new URL(req.url || '').searchParams;
+    const urlParams = new URLSearchParams(params);
+    const userID = urlParams.get('userID');
+    if (!userID) {
         return NextResponse.json({ success: false });
     }
 
-    const userID = JSON.parse(req.cookies.get('user')?.value || '').id;
     await connect();
     const userProfile = await UserProfile.findOne({ userID: userID });
 

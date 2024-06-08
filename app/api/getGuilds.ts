@@ -1,13 +1,6 @@
 'use server';
 import { cookies } from 'next/headers';
 
-interface User {
-    id: string;
-    avatar: string;
-    username: string;
-    global_username: string;
-}
-
 export default async function getUser() {
     const user = JSON.parse(cookies().get('user')?.value || '{}');
     if (user) {
