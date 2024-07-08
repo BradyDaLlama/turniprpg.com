@@ -6,7 +6,7 @@ import { REST } from '@discordjs/rest';
 export async function GET(req: Request) {
     const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_BOT_TOKEN || '');
 
-    const stats = (await rest.get(`/applications/${process.env.DISCORD_BOT_ID}/guilds`)) as {};
+    const stats = (await rest.get(`/applications/${process.env.DISCORD_BOT_ID}`)) as {};
     const accurateCount = (await rest.get(`/applications/${process.env.DISCORD_BOT_ID}/guilds`)) as {}[];
 
     return NextResponse.json({ ...stats, approximate_guild_count: accurateCount.length });
