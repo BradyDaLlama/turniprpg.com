@@ -1,9 +1,6 @@
 /** @type {import("next").NextConfig} */
 module.exports = {
     reactStrictMode: true,
-    // experimental: {
-    //     serverComponentsExternalPackages: ['mongoose'],
-    // },
     images: {
         remotePatterns: [
             {
@@ -28,6 +25,11 @@ module.exports = {
         ];
     },
     async rewrites() {
-        return [];
+        return [
+            {
+                source: '/api/bot/:path*',
+                destination: `${process.env.EXTERNAL_API}/:path*`,
+            },
+        ];
     },
 };
