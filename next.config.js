@@ -25,11 +25,6 @@ module.exports = {
         ];
     },
     async rewrites() {
-        return [
-            {
-                source: '/api/bot/:path*',
-                destination: `${process.env.EXTERNAL_API}/:path*`,
-            },
-        ];
+        return [];
     },
 };
