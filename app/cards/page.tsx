@@ -37,10 +37,10 @@ export default function Cards() {
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
-        fetch(`https://turnip.bot/api/bot/cards`)
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}`)
             .then((response) => response.json())
             .then((data) => setCards(data));
-    }, []);
+    }, [currentPage, perPage]);
 
     function filterCards(card: CardType) {
         const starCount = filters.starCount.length === 0 || filters.starCount.includes(card.stars.length);
