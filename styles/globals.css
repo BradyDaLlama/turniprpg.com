@@ -26,52 +26,21 @@ button {
 :root {
     --bg: #121215;
     --text: #ebf0ff;
-    --brand1: #ffdfb0;
-    --brand2: #ff9d71;
-    --gradient1: #5865f2;
-    --gradient2: #63a9ff;
+    --primary: theme('colors.primary');
+    --primary-dark: theme('colors.primaryDark');
+    --secondary: theme('colors.secondary');
+    --secondary-dark: theme('colors.secondaryDark');
     --embed: #2b2c37;
     --embed-hover: #35353f;
-    --cmdBg: #393d6b;
-    --cmdFont: #bbc9fb;
-    --r1: #63a9ff;
-    --r2: #6eff63;
-    --r3: #ff6e77;
-    --r4: #ffb978;
-    --r5: #9c62ff;
-    --r6: #ffb6dc;
-
-    --default-primary: #5865f2;
-    --default-info: #ff9d71;
-    --default-warning: #ffdfb0;
-}
-
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme='dark']) {
-        --bg: #ffffff;
-        --text: #121215;
-        --brand1: #ffdfb0;
-        --brand2: #ff9d71;
-        --gradient1: #5865f2;
-        --gradient2: #63a9ff;
-        --embed: #e2e5f8;
-        --embed-hover: #c8d0eb;
-        --cmdBg: #393d6b;
-        --cmdFont: #bbc9fb;
-    }
 }
 
 [data-theme='light'] {
     --bg: #ffffff;
     --text: #121215;
-    --brand1: #ffdfb0;
-    --brand2: #ff9d71;
-    --gradient1: #5865f2;
-    --gradient2: #63a9ff;
     --embed: #e2e5f8;
     --embed-hover: #c8d0eb;
-    --cmdBg: #393d6b;
-    --cmdFont: #bbc9fb;
+    --primary: theme('colors.primaryDark');
+    --primary-dark: theme('colors.primary');
 }
 
 /* ------------------- Tag Styling ---------------------*/
@@ -140,6 +109,41 @@ ul {
     list-style: none;
 }
 
+input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 16px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--embed);
+    border: 2px solid var(--text);
+}
+
+input[type='checkbox']::before {
+    content: '✦';
+    color: transparent;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+input[type='checkbox']:checked {
+    color: var(--secondary-dark);
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+}
+
+input[type='checkbox']:checked::before {
+    color: var(--bg);
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 /** {
@@ -188,7 +192,7 @@ ul {
     width: auto;
     border-radius: 50%;
     margin-right: 12px;
-    background: linear-gradient(45deg, var(--brand2), var(--brand1), var(--brand2));
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary), var(--primary-dark));
     background-size: 300%;
     transition: 0.4s ease;
 }
@@ -219,7 +223,7 @@ ul {
 }
 
 #maskedmoon {
-    background: var(--brand1);
+    background: var(--primary);
     -webkit-mask: url(/images/icons/moon.png) no-repeat center;
     mask: url(/images/icons/moon.png) no-repeat center;
     -webkit-mask-size: 100%;
@@ -227,7 +231,7 @@ ul {
 }
 
 #maskedsun {
-    background: var(--brand2);
+    background: var(--primary-dark);
     -webkit-mask: url(/images/icons/sun.png) no-repeat center;
     mask: url(/images/icons/sun.png) no-repeat center;
     -webkit-mask-size: 100%;
@@ -291,7 +295,7 @@ ul {
 }
 
 .pfp {
-    background: linear-gradient(45deg, var(--gradient1), var(--gradient2));
+    background: linear-gradient(45deg, var(--secondary-dark), var(--secondary));
     border-radius: 50%;
     padding: 0;
     margin: 0;
@@ -367,7 +371,7 @@ ul {
 
 .navbar-links a:hover {
     cursor: pointer;
-    color: var(--brand1);
+    color: var(--primary);
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -404,7 +408,7 @@ ul {
 .glow-button,
 .glow-button::before {
     position: relative;
-    background: linear-gradient(45deg, var(--brand2), var(--brand1));
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
     background-size: 200%;
     animation: glow 8s linear infinite;
     border: none;
@@ -488,7 +492,7 @@ ul {
     height: 100px;
     padding: 6px 18px;
     margin: 12px;
-    background-color: var(--brand1);
+    background-color: var(--primary);
     color: var(--bg);
     transition: 0.1s ease;
 }
