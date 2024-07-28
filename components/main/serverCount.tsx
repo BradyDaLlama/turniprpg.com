@@ -1,10 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Counter from '../counter';
 
 export default function ServerCount() {
-    const [serverCount, setServerCount] = React.useState(0);
-    React.useEffect(() => {
+    const [serverCount, setServerCount] = useState<number>(0);
+    useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/stats`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
@@ -16,7 +16,7 @@ export default function ServerCount() {
 
     return (
         <p className="hook">
-            used by over <Counter value={serverCount || 0} className="hook" /> servers!
+            used by over <Counter value={serverCount} className="hook" /> servers!
         </p>
     );
 }
