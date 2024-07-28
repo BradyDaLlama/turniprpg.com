@@ -1,0 +1,156 @@
+h1 {
+    font-size: 3rem;
+    margin: 16px 0;
+}
+
+.card-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin: 16px 0;
+}
+
+.card-filters label {
+    background-color: var(--embed);
+    border-radius: 100vh;
+    padding: 8px;
+
+    user-select: none;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.card-filters span:not(:last-child) {
+    padding-right: 16px;
+    border-right: 1px solid var(--embed);
+}
+
+.starcount-filter,
+.star-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    gap: 8px;
+
+    min-width: 180px;
+}
+
+.starcount-filter label {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+}
+
+.star-filter input {
+    display: none;
+}
+
+.star-filter label:has(input:not(:checked)) img {
+    opacity: 0.5;
+}
+
+.star-filter:not(:has(input:checked)) label img {
+    opacity: 1;
+}
+
+.star-filter img {
+    pointer-events: none;
+    display: inline;
+}
+
+.pagination ul {
+    margin: 16px auto;
+}
+
+.cards {
+    --card-width: 240px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+    justify-items: center;
+    gap: 16px;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+
+    background-color: var(--embed);
+    padding: 16px;
+    border-radius: 12px;
+
+    width: 100%;
+    max-width: var(--card-width);
+    aspect-ratio: 5/6;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.card-stars,
+.card-stars span {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.card-stars {
+    position: absolute;
+
+    padding: 0 16px;
+}
+
+div.card-stars {
+    justify-content: space-between;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+}
+
+span.card-stars {
+    right: 0;
+    top: 16px;
+}
+
+.star {
+    width: 32px;
+    aspect-ratio: 1;
+}
+
+.battle-outline-box {
+    position: absolute;
+    z-index: -1;
+
+    bottom: 0;
+    height: 80%;
+    width: 80%;
+
+    mask-image: linear-gradient(to bottom, transparent, black);
+}
+
+.battle-outline {
+    height: 100%;
+    width: 100%;
+
+    background: var(--secondary-dark);
+    opacity: 0.5;
+
+    -webkit-mask: url(/images/cards/battleoutline.png) no-repeat center;
+    mask: url(/images/cards/battleoutline.png) no-repeat center;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        --card-width: 180px;
+    }
+}
