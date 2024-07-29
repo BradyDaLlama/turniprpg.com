@@ -44,10 +44,7 @@ export default function Cards() {
             setTotal(newTotal);
             setCurrentPage(Math.min(currentPage, newTotal));
 
-            response.json().then((data) => {
-                console.log(data);
-                setCards(data);
-            });
+            response.json().then((data) => setCards(data));
         });
     }, []);
 
@@ -81,6 +78,7 @@ export default function Cards() {
     return (
         <>
             <h1>Card List</h1>
+            {cards}
             <div className="card-header">
                 <div className="card-filters" id="card-filters">
                     <span className="starcount-filter">
