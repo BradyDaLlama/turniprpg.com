@@ -38,9 +38,14 @@ export default function Cards() {
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}`)
-            .then((response) => response.json())
-            .then((data) => setCards(data));
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}`).then((response) => {
+            const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
+            const newTotal = Math.ceil(totalHeader / perPage);
+            setTotal(newTotal);
+            setCurrentPage(Math.min(currentPage, newTotal));
+
+            response.json().then((data) => setCards(data));
+        });
     }, []);
 
     function filterCards(card: CardType) {
@@ -141,11 +146,9 @@ export default function Cards() {
             </div>
             <div className="cards">
                 {cards
-                    .filter(filterCards)
+                    ?.filter(filterCards)
                     .slice((currentPage - 1) * perPage, currentPage * perPage)
-                    .map((card) => (
-                        <Card key={card.cardID} card={card} />
-                    ))}
+                    .map((card) => <Card key={card.cardID} card={card} />)}
             </div>
             <Page total={total} page={currentPage} onChange={setCurrentPage} />
             <a href="#card-filters">Back to top</a>
