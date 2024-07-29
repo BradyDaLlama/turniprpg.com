@@ -143,16 +143,21 @@ export default function Cards() {
                 <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             </div>
             <div className="cards">
-                {cards.filter(filterCards)
-                .sort((a, b) => {
-                    if (a.stars.length !== b.stars.length) {
-                        return a.stars.length - b.stars.length;
-                    }
-                    return parseInt(a.cardID) - parseInt(b.cardID);
-                })
-                .map((card) => (
-                    <Card key={card.cardID} card={card} />
-                ))}
+                {cards
+                    .filter(filterCards)
+                    .sort((a, b) => {
+                        if (!Object.keys(filters).some((key) => filters[key].length > 0)) {
+                            return parseInt(a.cardID) - parseInt(b.cardID);
+                        } else {
+                            if (a.stars.length !== b.stars.length) {
+                                return a.stars.length - b.stars.length;
+                            }
+                            return parseInt(a.cardID) - parseInt(b.cardID);
+                        }
+                    })
+                    .map((card) => (
+                        <Card key={card.cardID} card={card} />
+                    ))}
             </div>
             <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             <a href="#card-filters">Back to top</a>
