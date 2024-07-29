@@ -44,7 +44,10 @@ export default function Cards() {
             setTotal(newTotal);
             setCurrentPage(Math.min(currentPage, newTotal));
 
-            response.json().then((data) => setCards(data));
+            response.json().then((data) => {
+                console.log(data);
+                setCards(data);
+            });
         });
     }, []);
 
@@ -145,11 +148,12 @@ export default function Cards() {
                 <Page total={total} page={currentPage} onChange={setCurrentPage} />
             </div>
             <div className="cards">
-                {cards.length > 0 &&
-                    cards
-                        .filter(filterCards)
-                        .slice((currentPage - 1) * perPage, currentPage * perPage)
-                        .map((card) => <Card key={card.cardID} card={card} />)}
+                {cards
+                    .filter(filterCards)
+                    .slice((currentPage - 1) * perPage, currentPage * perPage)
+                    .map((card) => (
+                        <Card key={card.cardID} card={card} />
+                    ))}
             </div>
             <Page total={total} page={currentPage} onChange={setCurrentPage} />
             <a href="#card-filters">Back to top</a>
