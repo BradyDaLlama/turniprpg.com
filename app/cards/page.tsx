@@ -62,10 +62,10 @@ export default function Cards() {
                 filterQuery += `&${key}=${filters[key].join(',')}`;
             }
         }
-        console.log(`/bot/cards?page=${currentPage || 1}&limit=${perPage}${filterQuery}`);
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}${filterQuery}`).then(
             (response) => {
                 const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
+                console.log(totalHeader, response.headers.get('X-Total-Count'));
                 const newTotal = Math.ceil(totalHeader / perPage);
                 setTotal(newTotal);
 
