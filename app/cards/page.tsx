@@ -39,12 +39,12 @@ export default function Cards() {
 
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}`).then((response) => {
-            const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
-            const newTotal = Math.ceil(totalHeader / perPage);
-            setTotal(newTotal);
-            setCurrentPage(Math.min(currentPage, newTotal));
-
-            response.json().then((data) => setCards(data));
+            response.json().then((data) => {
+                const totalHeader = data.count;
+                const newTotal = Math.ceil(totalHeader / perPage);
+                setTotal(newTotal);
+                setCards(data.data);
+            });
         });
     }, []);
 
@@ -63,17 +63,13 @@ export default function Cards() {
             }
         }
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}${filterQuery}`).then(
-            (response) => {
-                const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
-                console.log(totalHeader, response.headers.get('X-Total-Count'));
-                const newTotal = Math.ceil(totalHeader / perPage);
-                setTotal(newTotal);
-
+            (response) =>
                 response.json().then((data) => {
-                    console.log(data);
-                    setCards(data);
-                });
-            }
+                    const totalHeader = data.count;
+                    const newTotal = Math.ceil(totalHeader / perPage);
+                    setTotal(newTotal);
+                    setCards(data.data);
+                })
         );
     }, [filters, currentPage]);
 
