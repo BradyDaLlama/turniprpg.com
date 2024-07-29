@@ -145,7 +145,6 @@ export default function Cards() {
             <div className="cards">
                 {cards
                     .filter(filterCards)
-                    .slice((currentPage - 1) * perPage, currentPage * perPage)
                     .map((card) => (
                         <Card key={card.cardID} card={card} />
                     ))}
