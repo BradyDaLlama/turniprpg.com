@@ -37,33 +37,9 @@ export default function Cards() {
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
-        async function fetchAllCards() {
-            let page = 1;
-            let haveAllCards = false;
-            let allCards = [] as CardType[];
-            while (!haveAllCards) {
-                await fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${page}`)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.length === 0) {
-                            haveAllCards = true;
-                            return;
-                        }
-                        allCards = [...allCards, ...data];
-                        page++;
-                    });
-            }
-
-            setCards(allCards);
-            setTotal(Math.ceil(allCards.length / perPage));
-        }
-
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}`)
             .then((response) => response.json())
-            .then((data) => {
-                setCards(data);
-                fetchAllCards();
-            });
+            .then((data) => setCards(data));
     }, []);
 
     function filterCards(card: CardType) {
@@ -74,10 +50,18 @@ export default function Cards() {
     }
 
     useEffect(() => {
-        const newTotal = Math.ceil(cards.filter(filterCards).length / perPage);
-        setTotal(newTotal);
-        setCurrentPage(Math.min(currentPage, newTotal));
-    }, [filters]);
+        const filterQuery = `&starCount=${filters.starCount.join(',')}&elements=${filters.elements.join(',')}&starTypes=${filters.starTypes.join(',')}`;
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}${filterQuery}`).then(
+            (response) => {
+                const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
+                const newTotal = Math.ceil(totalHeader / perPage);
+                setTotal(newTotal);
+                setCurrentPage(Math.min(currentPage, newTotal));
+
+                response.json().then((data) => setCards(data));
+            }
+        );
+    }, [filters, currentPage]);
 
     return (
         <>
