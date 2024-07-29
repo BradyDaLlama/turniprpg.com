@@ -78,7 +78,7 @@ export default function Cards() {
     return (
         <>
             <h1>Card List</h1>
-            {cards}
+            <p>{cards.join(' ')}</p>
             <div className="card-header">
                 <div className="card-filters" id="card-filters">
                     <span className="starcount-filter">
