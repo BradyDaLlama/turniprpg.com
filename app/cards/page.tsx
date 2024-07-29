@@ -55,6 +55,7 @@ export default function Cards() {
             }
 
             setCards(allCards);
+            setTotal(Math.ceil(allCards.length / perPage));
         }
 
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}`)
