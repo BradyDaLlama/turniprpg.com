@@ -151,7 +151,7 @@ span.card-stars {
 
 @media (max-width: 1024px) {
     .cards {
-        --card-width: 120px;
+        --card-width: 180px;
     }
 
     .card {
@@ -163,6 +163,6 @@ span.card-stars {
     }
 
     .star {
-        width: 16px;
+        width: 24px;
     }
 }
