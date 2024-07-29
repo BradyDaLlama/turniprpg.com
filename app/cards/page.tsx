@@ -32,12 +32,13 @@ export default function Cards() {
         starCount: number[];
         elements: string[];
         starTypes: string[];
+        [key: string]: string[] | number[];
     });
     const [perPage, setPerPage] = useState(80);
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}`)
+        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}`)
             .then((response) => response.json())
             .then((data) => setCards(data));
     }, []);
@@ -50,7 +51,13 @@ export default function Cards() {
     }
 
     useEffect(() => {
-        const filterQuery = `&starCount=${filters.starCount.join(',')}&elements=${filters.elements.join(',')}&starTypes=${filters.starTypes.join(',')}`;
+        let filterQuery = '';
+        for (const key in filters) {
+            if (filters[key].length > 0) {
+                filterQuery += `&${key}=${filters[key].join(',')}`;
+            }
+        }
+
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}${filterQuery}`).then(
             (response) => {
                 const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
