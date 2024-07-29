@@ -37,10 +37,33 @@ export default function Cards() {
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
+        async function fetchAllCards() {
+            let page = 1;
+            let haveAllCards = false;
+            let allCards = [] as CardType[];
+            while (!haveAllCards) {
+                await fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${page}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.length === 0) {
+                            haveAllCards = true;
+                            return;
+                        }
+                        allCards = [...allCards, ...data];
+                        page++;
+                    });
+            }
+
+            setCards(allCards);
+        }
+
         fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage}&limit=${perPage}`)
             .then((response) => response.json())
-            .then((data) => setCards(data));
-    }, [currentPage, perPage]);
+            .then((data) => {
+                setCards(data);
+                fetchAllCards();
+            });
+    }, []);
 
     function filterCards(card: CardType) {
         const starCount = filters.starCount.length === 0 || filters.starCount.includes(card.stars.length);
