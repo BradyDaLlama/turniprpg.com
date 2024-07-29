@@ -140,16 +140,14 @@ export default function Cards() {
                     </span>
                 </div>
                 <div className="card-sort"></div>
-                <Page total={total} page={currentPage} onChange={setCurrentPage} />
+                <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             </div>
             <div className="cards">
-                {cards
-                    .filter(filterCards)
-                    .map((card) => (
-                        <Card key={card.cardID} card={card} />
-                    ))}
+                {cards.filter(filterCards).map((card) => (
+                    <Card key={card.cardID} card={card} />
+                ))}
             </div>
-            <Page total={total} page={currentPage} onChange={setCurrentPage} />
+            <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             <a href="#card-filters">Back to top</a>
         </>
     );
