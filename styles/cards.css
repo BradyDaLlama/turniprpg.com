@@ -150,8 +150,16 @@ span.card-stars {
 }
 
 @media (max-width: 1024px) {
-    .card {
+    .cards {
         --card-width: 120px;
+    }
+
+    .card {
+        padding: 8px;
+    }
+
+    .card h2 {
+        font-size: 1.25rem;
     }
 
     .star {
