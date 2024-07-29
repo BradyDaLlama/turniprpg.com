@@ -68,9 +68,11 @@ export default function Cards() {
                 const totalHeader = parseInt(response.headers.get('X-Total-Count') || '0');
                 const newTotal = Math.ceil(totalHeader / perPage);
                 setTotal(newTotal);
-                setCurrentPage(Math.min(currentPage, newTotal));
 
-                response.json().then((data) => setCards(data));
+                response.json().then((data) => {
+                    console.log(data);
+                    setCards(data);
+                });
             }
         );
     }, [filters, currentPage]);
@@ -78,7 +80,6 @@ export default function Cards() {
     return (
         <>
             <h1>Card List</h1>
-            <p>{cards.join(' ')}</p>
             <div className="card-header">
                 <div className="card-filters" id="card-filters">
                     <span className="starcount-filter">
