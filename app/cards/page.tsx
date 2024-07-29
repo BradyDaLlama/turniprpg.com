@@ -143,7 +143,14 @@ export default function Cards() {
                 <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             </div>
             <div className="cards">
-                {cards.filter(filterCards).map((card) => (
+                {cards.filter(filterCards)
+                .sort((a, b) => {
+                    if (a.stars.length !== b.stars.length) {
+                        return a.stars.length - b.stars.length;
+                    }
+                    return parseInt(a.cardID) - parseInt(b.cardID);
+                })
+                .map((card) => (
                     <Card key={card.cardID} card={card} />
                 ))}
             </div>
