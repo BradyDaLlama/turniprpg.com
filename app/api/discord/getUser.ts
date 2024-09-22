@@ -10,6 +10,6 @@ interface User {
 export default function getUser(): User | null {
     const user = cookies().get('user')?.value;
     if (user) return JSON.parse(user);
-    fetch(`api/discord/`);
+    fetch(`${process.env.NEXT_PUBLIC_API}/discord/`);
     return null;
 }
