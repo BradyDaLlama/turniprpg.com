@@ -180,7 +180,7 @@ export default function Commands() {
                                     ))}
                                     {command.args?.map((arg: CommandType) => (
                                         <Tooltip note={`argument: ${arg.description}`}>
-                                            <Code className="arg" color="primary">
+                                            <Code className="arg" color="secondary">
                                                 {arg.name}
                                             </Code>
                                         </Tooltip>
