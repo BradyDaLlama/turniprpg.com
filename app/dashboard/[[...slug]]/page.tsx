@@ -6,7 +6,6 @@ import '@/styles/dashboard.css';
 export default function Home() {
     return (
         <>
-            <UserBar />
             <ServerList />
         </>
     );
