@@ -229,8 +229,8 @@ body:has(.server-bar) footer {
     background-color: rgba(88, 101, 242, 0.2);
 }
 
-.options {
-    width: 100%;
+.server-box p {
+    margin: auto;
 }
 
 @media (max-width: 1024px) {
