@@ -25,7 +25,10 @@ button {
 /* ------------------- Variables ---------------------*/
 :root {
     --bg: #121215;
+    --bg-hover: #1a1a1f;
     --text: #ebf0ff;
+    --cmdBg: #393d6b;
+    --cmdFont: #bbc9fb;
     --primary: theme('colors.primary');
     --primary-dark: theme('colors.primaryDark');
     --secondary: theme('colors.secondary');
@@ -37,6 +40,8 @@ button {
 [data-theme='light'] {
     --bg: #ffffff;
     --text: #121215;
+    --cmdBg: #bbc9fb;
+    --cmdFont: #393d6b;
     --embed: #e2e5f8;
     --embed-hover: #c8d0eb;
     --primary: theme('colors.primaryDark');

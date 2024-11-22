@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Chip, Code, Spinner } from '@nextui-org/react';
 import useLargeScreen from '@/components/hooks/useLargeScreen';
 import Tooltip from '@/components/tooltip';
@@ -33,9 +33,9 @@ type CommandType = {
 
 export default function Commands() {
     const isLargeScreen = useLargeScreen();
-    const [commands, setCommands] = React.useState([]);
-    const [searchCommand, setCommand] = React.useState('');
-    const [searchTags, setTags] = React.useState([] as string[]);
+    const [commands, setCommands] = useState([]);
+    const [searchCommand, setCommand] = useState('');
+    const [searchTags, setTags] = useState([] as string[]);
 
     function processCommands(command: CommandType): CommandType[] {
         let commands = [{ ...command, name: command.name }];
@@ -97,8 +97,8 @@ export default function Commands() {
         return groupedCommands;
     }
 
-    React.useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/commands`).then((response) => {
+    useEffect(() => {
+        fetch(`api/bot/commands`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
                     setCommands(data.flatMap(processCommands));
@@ -180,7 +180,7 @@ export default function Commands() {
                                     ))}
                                     {command.args?.map((arg: CommandType) => (
                                         <Tooltip note={`argument: ${arg.description}`}>
-                                            <Code className="arg" color="primary">
+                                            <Code className="arg" color="secondary">
                                                 {arg.name}
                                             </Code>
                                         </Tooltip>

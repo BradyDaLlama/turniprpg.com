@@ -38,7 +38,7 @@ export default function Cards() {
     const [total, setTotal] = useState(Math.ceil(cards.length / perPage));
 
     useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}`).then((response) => {
+        fetch(`api/bot/cards?page=${currentPage || 1}&limit=${perPage}`).then((response) => {
             response.json().then((data) => {
                 const totalHeader = data.count;
                 const newTotal = Math.ceil(totalHeader / perPage);
@@ -62,14 +62,13 @@ export default function Cards() {
                 filterQuery += `&${key}=${filters[key].join(',')}`;
             }
         }
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/cards?page=${currentPage || 1}&limit=${perPage}${filterQuery}`).then(
-            (response) =>
-                response.json().then((data) => {
-                    const totalHeader = data.count;
-                    const newTotal = Math.ceil(totalHeader / perPage);
-                    setTotal(newTotal);
-                    setCards(data.data);
-                })
+        fetch(`api/bot/cards?page=${currentPage || 1}&limit=${perPage}${filterQuery}`).then((response) =>
+            response.json().then((data) => {
+                const totalHeader = data.count;
+                const newTotal = Math.ceil(totalHeader / perPage);
+                setTotal(newTotal);
+                setCards(data.data);
+            })
         );
     }, [filters, currentPage]);
 

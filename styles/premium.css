@@ -3,16 +3,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 24px;
+    gap: 16px;
 }
 
 .option {
     text-align: center;
-    background: linear-gradient(45deg, var(--secondary-dark), var(--secondary)); /* Add the background color here */
+    background: linear-gradient(45deg, var(--secondary-dark), var(--secondary));
     margin-top: 32px;
     border-radius: 12px;
     padding: 24px;
-    width: 480px;
+    width: 432px;
 
     position: relative;
     z-index: 1;
@@ -88,6 +88,7 @@
 
 .perk:hover {
     background-color: var(--embed-hover);
+    cursor: default;
 }
 
 .perk h2 {

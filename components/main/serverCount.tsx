@@ -5,7 +5,7 @@ import Counter from '../counter';
 export default function ServerCount() {
     const [serverCount, setServerCount] = useState<number>(0);
     useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API}/bot/stats`).then((response) => {
+        fetch(`api/bot/stats`).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
                     setServerCount(data.serverCount);

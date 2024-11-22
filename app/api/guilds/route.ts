@@ -41,6 +41,14 @@ export async function GET(req: Request) {
     await userProfile.save();
 
     const guilds = await oauth.getUserGuilds(data.access_token);
+    const guildsWithBot = await fetch(
+        `${process.env.NEXT_PUBLIC_API}/bot/guilds/${guilds.map((guild) => guild.id).join(',')}`
+    ).then((res) => res.json());
 
-    return NextResponse.json(guilds);
+    return NextResponse.json(
+        guilds.map((guild) => ({
+            ...guild,
+            hasBot: guildsWithBot[guild.id],
+        }))
+    );
 }
