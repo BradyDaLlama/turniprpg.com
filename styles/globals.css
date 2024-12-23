@@ -22,6 +22,11 @@ button {
     src: url('/fonts/Outfit-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Bungee';
+    src: url('/fonts/Bungee.otf');
+}
+
 /* ------------------- Variables ---------------------*/
 :root {
     --bg: #121215;
