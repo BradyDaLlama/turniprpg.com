@@ -17,6 +17,12 @@
         ]
     },
     {
+        "title": "Cookies",
+        "policies": [
+            "The turnipRPG website uses minimal cookies to enhance user experience and functionality. These cookies do not collect personal information and are used for technical purposes only."
+        ]
+    },
+    {
         "title": "Data Retention",
         "policies": [
             "turnipRPG profiles associated with Discord IDs are retained indefinitely, unless a user goes through the data deletion process. This allows users to maintain their progress and achievements in the game over time.",

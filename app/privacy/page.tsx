@@ -35,7 +35,7 @@ export default function Privacy() {
                         ))}
                 </div>
             ))}
-            <p>Last updated: May 28, 2024</p>
+            <p>Last updated: December 23, 2024</p>
         </>
     );
 }

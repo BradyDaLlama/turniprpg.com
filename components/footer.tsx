@@ -13,7 +13,7 @@ const Footer = () => {
                     <li>
                         <a href="privacy">Privacy Policy</a>
                     </li>
-                    <li className="opacity-70">This site does not collect cookies</li>
+                    <li className="opacity-70">This site uses minimal cookies, noted in the privacy policy</li>
                 </ul>
 
                 <span className="footer-box">
