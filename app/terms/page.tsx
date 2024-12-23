@@ -34,7 +34,7 @@ export default function Terms() {
                     </ul>
                 </div>
             ))}
-            <p>Last updated: May 28, 2024</p>
+            <p>Last updated: December 23, 2024</p>
         </>
     );
 }
