@@ -1,46 +1,18 @@
 [
     {
-        "name": "Badge",
-        "description": "receive a unique badge on your profile"
+        "name": "Premium Bundle",
+        "subscription": "One-Time",
+        "price": 12.49
     },
     {
-        "name": "Portrait",
-        "description": "receive a profile picture of your avatar"
+        "name": "Turnip Plus",
+        "price": 2.49,
+        "subscription": "/ month",
+        "color": "gold"
     },
     {
-        "name": "Pull reroll",
-        "description": "choose to reroll a card pull"
-    },
-    {
-        "name": "Beta Testing",
-        "description": "Get a chance to test new beta features"
-    },
-    {
-        "name": "Auto Sell",
-        "description": "Sell all specified selected items after you have more than the selected amount"
-    },
-    {
-        "name": "Adventure Bag",
-        "description": "View items recently collected that are stored in an adventure bag"
-    },
-    {
-        "name": "Crafting Slots",
-        "description": "Get up to two additional crafting/cooking slots"
-    },
-    {
-        "name": "Favorite Food items",
-        "description": "Get up to seven additional favorite food slots"
-    },
-    {
-        "name": "Farming Trowel",
-        "description": "plant a 3x3 farmland of plots with the same seed all at once"
-    },
-    {
-        "name": "Fertilizer Machine",
-        "description": "fertilize a 3x3 farmland of plots with the same fertilizer all at once"
-    },
-    {
-        "name": "Telescope",
-        "description": "Have additional zoom out distance when exploring"
+        "name": "Tip",
+        "price": "Custom Amount",
+        "color": "silver"
     }
 ]

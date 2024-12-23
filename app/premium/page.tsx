@@ -3,6 +3,7 @@ import '@/styles/premium.css';
 
 import { Code } from '@nextui-org/react';
 
+import options from '@/data/perkOptions.json';
 import perks from '@/data/perks.json';
 
 import getUser from '@/app/api/discord/getUser';
@@ -13,48 +14,62 @@ export default async function Premium() {
     return (
         <>
             <div className="options-container">
-                <div className="option">
-                    <h1>turnipRPG Premium</h1>
-                    <p>
-                        <Code className="price">$3.49</Code>/ month
-                    </p>
+                {perks.map((perk) => {
+                    const perkOptions = options.filter((i) => i.bundles.includes(perk.name));
+                    return (
+                        <div className={`option ${perk?.color}`} key={perk.name}>
+                            <h1>{perk.name}</h1>
+                            <p>
+                                <Code className="price">
+                                    {typeof perk.price === 'number' ? ' $' : ' '}
+                                    {perk.price}
+                                </Code>
+                                {perk.subscription}
+                            </p>
 
-                    <p className="note"> currently does not provide perks</p>
+                            {!!perkOptions.length ? (
+                                <p className="note">currently does not provide perks</p>
+                            ) : (
+                                <p className="note">does not provide perks</p>
+                            )}
 
-                    {user ? (
-                        <a className="glow-button" href="https://buy.stripe.com/3cs29f3fR16O8ZW145">
-                            Get Premium
-                        </a>
-                    ) : (
-                        <a className="glow-button" href="/">
-                            Log in to get Premium
-                        </a>
-                    )}
-                </div>
-
-                <div className="option">
-                    <h1>turnipRPG tip</h1>
-                    <p>custom amount</p>
-
-                    <p className="note"> does not provide perks</p>
-
-                    <a className="glow-button" href="https://donate.stripe.com/14keW17w7dTAcc83cc">
-                        Give a tip
-                    </a>
-                </div>
-            </div>
-            <div className="perks-container">
-                <h1>What will be included in the future?*</h1>
-                <div className="perks">
-                    {perks.map((perk) => (
-                        <div className="perk">
-                            <h2> {perk.name} </h2>
-                            <p> {perk.description} </p>
+                            {user ? (
+                                <a className="glow-button" href="/">
+                                    Get {perk.name}
+                                </a>
+                            ) : (
+                                <a className="glow-button" href="/">
+                                    Log in to buy {perk.name}
+                                </a>
+                            )}
                         </div>
-                    ))}
-                </div>
-                <p>*These perks are not yet included in turnipRPG premium</p>
+                    );
+                })}
             </div>
+
+            <h1 className="perks-header">What will be included in the future?*</h1>
+            <div className="perks-container">
+                {perks
+                    .filter((i) => options.some((j) => j.bundles.includes(i.name)))
+                    .map((item) => {
+                        const perkOptions = options.filter((i) => i.bundles.includes(item.name));
+                        return (
+                            <div className="perks">
+                                <h2 className="bundle-name">{item.name}</h2>
+                                {perkOptions
+                                    ?.sort((a, b) => a.name.localeCompare(b.name))
+                                    .map((perk) => (
+                                        <div className="perk">
+                                            <h2> {perk.name} </h2>
+                                            <p> {perk.description} </p>
+                                        </div>
+                                    ))}
+                            </div>
+                        );
+                    })}
+            </div>
+            <p className="note">*perks are currently not provided and may be subject to change. Terms and conditions apply.</p>
+
             <img className="powered-by" src="/images/icons/StripeBlurple.svg" alt="Powered By Stripe" />
         </>
     );

@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Badge",
+        "description": "receive a unique cumulative donation badge on your profile",
+        "bundles": ["Premium Bundle", "Turnip Plus", "Tip"]
+    },
+    {
+        "name": "Portrait",
+        "description": "receive a profile picture of your avatar",
+        "bundles": ["Premium Bundle", "Turnip Plus"]
+    },
+    {
+        "name": "Beta Testing",
+        "description": "Get a chance to test new beta features",
+        "bundles": ["Premium Bundle", "Turnip Plus"]
+    },
+    {
+        "name": "Auto Sell",
+        "description": "Sell all specified selected items after you have more than the selected amount",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Adventure Bag",
+        "description": "View items recently collected that are stored in an adventure bag",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Crafting Slots",
+        "description": "Get up to two additional crafting/cooking slots",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Favorite Food items",
+        "description": "Get up to seven additional favorite food slots",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Farming Trowel",
+        "description": "plant a 3x3 farmland of plots with the same seed all at once",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Fertilizer Machine",
+        "description": "fertilize a 3x3 farmland of plots with the same fertilizer all at once",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Telescope",
+        "description": "Have additional zoom out distance when exploring",
+        "bundles": ["Premium Bundle"]
+    },
+    {
+        "name": "Pull reroll",
+        "description": "choose to reroll a card pull",
+        "bundles": ["Turnip Plus"]
+    }
+]

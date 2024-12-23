@@ -1,9 +1,14 @@
+main {
+    width: 80%;
+}
+
 .options-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 16px;
+    margin-bottom: 32px;
 }
 
 .option {
@@ -12,10 +17,18 @@
     margin-top: 32px;
     border-radius: 12px;
     padding: 24px;
-    width: 432px;
+    width: 400px;
 
     position: relative;
     z-index: 1;
+}
+
+.option.gold {
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+}
+
+.option.silver {
+    background: linear-gradient(45deg, var(--secondary-dark), var(--primary-dark));
 }
 
 .option::before {
@@ -62,20 +75,32 @@
 }
 
 .perks-container {
-    margin: 64px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
 }
 
-.perks-container h1 {
+.perks-header {
     font-size: 32px;
+}
+
+.perks-container h2 {
+    font-size: 28px;
+    text-decoration: underline;
 }
 
 .perks {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 24px;
 
-    margin: 32px 0px;
+    margin: 12px 0px;
+
+    width: fit-content;
 }
 
 .perk {
