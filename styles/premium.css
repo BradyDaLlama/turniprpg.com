@@ -1,34 +1,24 @@
-main {
-    width: 80%;
-}
-
 .options-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 16px;
-    margin-bottom: 32px;
+    --option-width: 280px;
+    --option-max-width: 640px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--option-width), 1fr) minmax(var(--option-width), 1fr));
+    gap: 32px;
+
+    margin: 32px 0;
 }
 
 .option {
     text-align: center;
     background: linear-gradient(45deg, var(--secondary-dark), var(--secondary));
-    margin-top: 32px;
     border-radius: 12px;
-    padding: 24px;
-    width: 400px;
+    padding: 16px 24px;
+
+    margin: 0 auto;
+    width: clamp(var(--option-width), 100%, var(--option-max-width));
 
     position: relative;
     z-index: 1;
-}
-
-.option.gold {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
-}
-
-.option.silver {
-    background: linear-gradient(45deg, var(--secondary-dark), var(--primary-dark));
 }
 
 .option::before {
@@ -45,17 +35,19 @@ main {
 }
 
 .option h1 {
-    font-size: 42px;
+    font-size: 32px;
     text-decoration: underline;
     font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.option p,
+.option .price {
+    font-size: 18px;
 }
 
 .option p {
-    font-size: 24px;
-}
-
-.option .note {
-    font-size: 18px;
+    margin-top: 8px;
 }
 
 .price {
@@ -65,8 +57,6 @@ main {
 
     padding: 6px;
     margin-right: 3px;
-
-    font-size: 24px;
 }
 
 .option ul li {
@@ -75,20 +65,41 @@ main {
 }
 
 .perks-container {
-    display: flex;
-    flex-wrap: wrap;
+    --perk-width: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--perk-width), 1fr));
     justify-content: center;
     align-items: flex-start;
-    gap: 48px;
+    gap: 16px;
 }
 
-.perks-header {
-    font-size: 32px;
-}
-
-.perks-container h2 {
+.perks-header,
+.perk-name {
     font-size: 28px;
+}
+
+.bundle-name,
+.perk-name {
+    position: relative;
+
+    font-size: 32px;
+    font-weight: 800;
     text-decoration: underline;
+    background: linear-gradient(45deg, var(--secondary-dark), var(--secondary));
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.gold {
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+}
+
+.silver {
+    background: linear-gradient(45deg, var(--secondary-dark), var(--primary-dark));
+}
+
+.bronze {
+    background: linear-gradient(45deg, var(--secondary-dark), var(--primary));
 }
 
 .perks {
@@ -96,18 +107,18 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
 
     margin: 12px 0px;
 
-    width: fit-content;
+    width: clamp(var(--perk-width), 100%);
 }
 
 .perk {
-    width: 360px;
+    width: 100%;
     background-color: var(--embed);
 
-    padding: 24px;
+    padding: 16px 24px;
     border-radius: 12px;
 }
 
@@ -117,14 +128,14 @@ main {
 }
 
 .perk h2 {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 800;
-    margin-bottom: 12px;
 }
 
 .perk p {
-    font-size: 24px;
+    font-size: 18px;
     text-align: left;
+    opacity: 0.8;
 }
 
 .powered-by {
@@ -133,25 +144,26 @@ main {
     width: 200px;
     height: auto;
     padding: 0px;
-    margin-top: 48px;
+    margin-top: 24px;
     pointer-events: none;
 }
 
 .option .glow-button {
-    font-size: 18px;
-    margin-top: 24px;
+    font-size: 16px;
+    margin-top: 16px;
 }
 
 /* media queries */
 @media (max-width: 1200px) {
-    .main {
-        flex-direction: column;
-        margin-top: 72px;
+    .options-container {
+        --option-width: 320px;
+        --option-max-width: 480px;
+
+        grid-template-columns: repeat(auto-fit, minmax(var(--option-width), 1fr));
     }
 
     .option {
         padding: 12px;
-        margin: 12px 0px;
     }
 
     .option h1 {
