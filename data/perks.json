@@ -11,6 +11,12 @@
         "color": "gold"
     },
     {
+        "name": "Custom RPG",
+        "price": 49.49,
+        "subscription": "One-Time",
+        "color": "bronze"
+    },
+    {
         "name": "Tip",
         "price": "Custom Amount",
         "color": "silver"
