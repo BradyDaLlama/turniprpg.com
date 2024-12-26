@@ -11,27 +11,27 @@
     },
     {
         "name": "Beta Testing",
-        "description": "Get a chance to test new beta features",
+        "description": "get a chance to test new beta features",
         "bundles": ["Premium Bundle", "Turnip Plus"]
     },
     {
-        "name": "Auto Sell",
-        "description": "Sell all specified selected items after you have more than the selected amount",
+        "name": "Auto-sell",
+        "description": "sell all specified selected items after you have more than the selected amount",
         "bundles": ["Premium Bundle"]
     },
     {
         "name": "Adventure Bag",
-        "description": "View items recently collected that are stored in an adventure bag",
+        "description": "view items recently collected that are stored in an adventure bag",
         "bundles": ["Premium Bundle"]
     },
     {
         "name": "Crafting Slots",
-        "description": "Get up to two additional crafting/cooking slots",
+        "description": "get up to two additional crafting/cooking slots",
         "bundles": ["Premium Bundle"]
     },
     {
         "name": "Favorite Food items",
-        "description": "Get up to seven additional favorite food slots",
+        "description": "get up to seven additional favorite food slots",
         "bundles": ["Premium Bundle"]
     },
     {
@@ -50,8 +50,18 @@
         "bundles": ["Premium Bundle"]
     },
     {
-        "name": "Pull reroll",
+        "name": "Pull Reroll",
         "description": "choose to reroll a card pull",
         "bundles": ["Turnip Plus"]
+    },
+    {
+        "name": "Custom RPG",
+        "description": "create a custom bot instance for one server. customize the bot's profile and create items, cards, and interactions for the bot.",
+        "bundles": ["Custom RPG"]
+    },
+    {
+        "name": "Exclusive Events",
+        "description": "participate in limited seasonal events",
+        "bundles": ["Premium Bundle", "Turnip Plus"]
     }
 ]
