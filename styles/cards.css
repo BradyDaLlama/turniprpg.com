@@ -95,34 +95,44 @@ h1 {
     text-align: left;
 }
 
-.card-stars,
-.card-stars span {
+.card-info,
+.card-info span {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
 
-.card-stars {
+.card-info {
     position: absolute;
 
     padding: 0 16px;
 }
 
-div.card-stars {
+div.card-info {
     justify-content: space-between;
     bottom: 16px;
     left: 0;
     right: 0;
 }
 
-span.card-stars {
+span.card-info {
     right: 0;
     top: 16px;
+}
+
+.card-stars {
+    flex-direction: column;
 }
 
 .star {
     width: 32px;
     aspect-ratio: 1;
+}
+
+.card-description {
+    font-size: 16px;
+    text-align: left;
+    bottom: 0;
 }
 
 .battle-outline-box {

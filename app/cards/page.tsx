@@ -138,7 +138,6 @@ export default function Cards() {
                         ))}
                     </span>
                 </div>
-                <div className="card-sort"></div>
                 <Page total={total} page={Math.min(currentPage, total)} onChange={setCurrentPage} />
             </div>
             <div className="cards">
