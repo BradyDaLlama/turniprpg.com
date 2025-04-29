@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import '@/styles/cards.css';
 
-import { Pagination } from '@nextui-org/react';
+import { Pagination } from "@heroui/react";
 
 import { Card as CardType } from '../../types/card';
 import Card from '../../components/cards/card';
@@ -119,7 +119,7 @@ export default function Cards() {
                         ))}
                     </span>
                     <span className="star-filter">
-                        {['melee', 'shield', 'heal', 'spell', 'turn', 'sacrifice'].map((star) => (
+                        {['melee', 'shield', 'heal', 'spell', 'turn', 'special'].map((star) => (
                             <label key={star}>
                                 <input
                                     type="checkbox"
