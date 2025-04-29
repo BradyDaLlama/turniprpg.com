@@ -1,8 +1,8 @@
 [
     {
         "name": "Premium Bundle",
-        "subscription": "One-Time",
-        "price": 12.49
+        "price": 12.49,
+        "subscription": "One-Time"
     },
     {
         "name": "Turnip Plus",
@@ -12,7 +12,7 @@
     },
     {
         "name": "Custom RPG",
-        "price": 49.49,
+        "price": 149.49,
         "subscription": "One-Time",
         "color": "bronze"
     },

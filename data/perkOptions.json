@@ -7,7 +7,7 @@
     {
         "name": "Portrait",
         "description": "receive a profile picture of your avatar",
-        "bundles": ["Premium Bundle", "Turnip Plus"]
+        "bundles": ["Premium Bundle", "Turnip Plus", "Tip"]
     },
     {
         "name": "Beta Testing",
@@ -51,7 +51,12 @@
     },
     {
         "name": "Pull Reroll",
-        "description": "choose to reroll a card pull",
+        "description": "choose to reroll a card pull from daily pulls and stardust pulls",
+        "bundles": ["Turnip Plus"]
+    },
+    {
+        "name": "Daily Stardust",
+        "description": "get a daily stardust bonus",
         "bundles": ["Turnip Plus"]
     },
     {
