@@ -4,7 +4,6 @@
 
 .titleLogo {
     display: inline-block;
-    pointer-events: none;
     margin: 12px 0px;
     margin-bottom: 24px;
 }
