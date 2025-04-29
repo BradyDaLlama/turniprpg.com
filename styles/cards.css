@@ -1,5 +1,5 @@
 h1 {
-    font-size: 3rem;
+    font-size: var(--text-xl);
     margin: 16px 0;
 }
 
@@ -89,7 +89,7 @@ h1 {
 }
 
 .card h2 {
-    font-size: 1.5rem;
+    font-size: var(--text-md);
     font-weight: 600;
     text-decoration: underline;
     text-align: left;
@@ -130,7 +130,7 @@ span.card-info {
 }
 
 .card-description {
-    font-size: 16px;
+    font-size: var(--text-sm);
     text-align: left;
     bottom: 0;
 }
@@ -169,7 +169,11 @@ span.card-info {
     }
 
     .card h2 {
-        font-size: 1.25rem;
+        font-size: var(--text-md);
+    }
+
+    .card-description {
+        font-size: var(--text-xs);
     }
 
     .star {

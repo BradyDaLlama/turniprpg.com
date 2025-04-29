@@ -40,6 +40,12 @@ button {
     --secondary-dark: theme('colors.secondaryDark');
     --embed: #2b2c37;
     --embed-hover: #35353f;
+
+    --text-xs: 0.875rem;
+    --text-sm: 1rem;
+    --text-md: 1.375rem;
+    --text-lg: 2rem;
+    --text-xl: 3rem;
 }
 
 [data-theme='light'] {
@@ -72,7 +78,7 @@ header {
     color: var(--text);
     background-color: var(--bg);
     border-bottom: 1px solid var(--embed);
-    padding: 8px;
+    padding: 4px 16px;
 
     position: fixed;
     top: 0;
@@ -109,11 +115,6 @@ table {
     display: inline-block;
 }
 
-td {
-    font-size: 36px;
-    width: 25%;
-}
-
 ul {
     text-align: left;
     list-style: none;
@@ -140,7 +141,7 @@ input[type='checkbox']::before {
     content: '✦';
     color: transparent;
 
-    font-size: 18px;
+    font-size: var(--text-sm);
     font-weight: 800;
 }
 
@@ -182,7 +183,7 @@ input[type='checkbox']:checked::before {
     justify-content: space-between;
     align-items: center;
     padding-right: 30px;
-    font-size: 28px;
+    font-size: min(var(--text-md), 5vw);
     width: 50%;
     min-width: 1200px;
     margin: 0 auto;
@@ -228,7 +229,8 @@ input[type='checkbox']:checked::before {
     width: 22px;
     height: 22px;
     position: absolute;
-    top: 18px;
+    top: 50%;
+    translate: 0 -50%;
     transition: 0.25s ease;
 }
 
@@ -321,6 +323,10 @@ input[type='checkbox']:checked::before {
     height: 40px;
 }
 
+.dropdown-item {
+    font-size: var(--text-lg);
+}
+
 .pfp-dropdown {
     border-radius: 24px;
     margin: 0;
@@ -357,7 +363,7 @@ input[type='checkbox']:checked::before {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    font-size: 22px;
+    font-size: var(--text-md);
     transition: all 0.5s ease;
 }
 
@@ -405,7 +411,7 @@ input[type='checkbox']:checked::before {
     margin: 6px;
     padding: 3px 12px !important;
     transition: 0.25s ease;
-    font-size: 20px;
+    font-size: var(--text-md);
 }
 
 .navbar-links .discord-login:hover,
@@ -545,9 +551,7 @@ input[type='checkbox']:checked::before {
 
 .line {
     fill: none;
-    transition:
-        stroke-dasharray 400ms,
-        stroke-dashoffset 400ms;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
     stroke: var(--text);
     stroke-width: 5.5;
     stroke-linecap: round;
@@ -597,7 +601,7 @@ input[type='checkbox']:checked::before {
 }
 
 .footer-container h1 {
-    font-size: 18px;
+    font-size: var(--text-md);
     margin-bottom: 10px;
 }
 
