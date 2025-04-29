@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '@/styles/premium.css';
 
-import { Code } from '@nextui-org/react';
+import { Code } from "@heroui/react";
 
 import perks from '@/data/perkOptions.json';
 import bundles from '@/data/perks.json';

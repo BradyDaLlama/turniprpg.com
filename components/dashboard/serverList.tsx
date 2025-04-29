@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Svg from '@/components/svg';
 import Option from './option';
 
-import { Avatar, Skeleton, Select, SelectItem } from '@nextui-org/react';
+import { Avatar, Skeleton, Select, SelectItem } from "@heroui/react";
 
 import getGuilds from '@/app/api/getGuilds';
 

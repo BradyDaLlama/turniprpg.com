@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-import { Select, SelectItem } from '@nextui-org/react';
+import { Select, SelectItem } from "@heroui/react";
 
 export default function ServerList({ guildId, option }: { guildId: string; option: string }) {
     const [options, setOptions] = useState([] as any[]);

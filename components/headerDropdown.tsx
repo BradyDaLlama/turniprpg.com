@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { Avatar, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Skeleton } from '@nextui-org/react';
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@heroui/react';
 
 export default function HeaderDropdown({ pfp }: { pfp: JSX.Element }) {
     return (
@@ -13,7 +12,11 @@ export default function HeaderDropdown({ pfp }: { pfp: JSX.Element }) {
                         {pfp}
                     </span>
                 </DropdownTrigger>
-                <DropdownMenu aria-label="Static Actions" className="text-lg">
+                <DropdownMenu
+                    aria-label="Static Actions"
+                    className="text-lg"
+                    onAction={() => (window.location.href = `/api/discord/logout`)}
+                >
                     {/* <DropdownItem key="profile">Profile</DropdownItem> */}
                     <DropdownItem href="/api/discord/logout" key="logout" className="text-danger" color="danger">
                         Log out

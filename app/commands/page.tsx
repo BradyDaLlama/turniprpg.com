@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Input, Chip, Code, Spinner } from '@nextui-org/react';
+import { Input, Chip, Code, Spinner } from "@heroui/react";
 import useLargeScreen from '@/components/hooks/useLargeScreen';
 import Tooltip from '@/components/tooltip';
 

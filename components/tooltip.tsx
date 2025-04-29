@@ -1,4 +1,4 @@
-import { Tooltip, Popover, PopoverTrigger, PopoverContent } from '@nextui-org/react';
+import { Tooltip, Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
 
 // children to be content, note to be tooltip/popover content
 export default function TooltipComponent({ children, note }: { children: React.ReactNode; note: string }) {
