@@ -19,7 +19,7 @@ export default function ServerList({ guildId, option }: { guildId: string; optio
     return (
         <Select>
             {options.map((option) => (
-                <SelectItem key={option.value} value={option.value}>
+                <SelectItem key={option.value}>
                     {option.label}
                 </SelectItem>
             ))}
