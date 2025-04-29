@@ -3,6 +3,7 @@ import React from 'react';
 
 import MenuToggle from './menuToggle';
 import ThemeToggle from './themeToggle';
+import ContentDropdown from './contentDropdown';
 import HeaderDropdown from './headerDropdown';
 
 import getUser from '@/app/api/discord/getUser';
@@ -38,39 +39,21 @@ export default function Header() {
                             <MenuToggle />
                         </div>
                         <ul className="navbar-links menu-hide">
-                            {[
-                                {
-                                    name: 'Commands',
-                                    href: '/commands',
-                                    className: 'first',
-                                },
-                                {
-                                    name: 'Invite',
-                                    href: '/invite',
-                                    className: 'second',
-                                },
-                                {
-                                    name: 'Support',
-                                    href: '/support',
-                                    className: 'third',
-                                },
-                                {
-                                    name: 'Dashboard',
-                                    href: '/dashboard',
-                                    className: 'fourth',
-                                },
-                                {
-                                    name: 'Premium',
-                                    href: '/premium',
-                                    className: 'sixth',
-                                },
-                            ].map((item) => (
-                                <li key={item.name}>
-                                    <a className={item.className} href={item.href}>
-                                        {item.name}
-                                    </a>
-                                </li>
-                            ))}
+                            <li>
+                                <ContentDropdown/>
+                            </li>
+                            <li>
+                                <a href="/invite">Invite</a>
+                            </li>
+                            <li>
+                                <a href="/support">Support</a>
+                            </li>
+                            <li>
+                                <a href="/dashboard">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="/premium">Premium</a>
+                            </li>
                             <li>
                                 <div className="login-items">
                                     <span>
