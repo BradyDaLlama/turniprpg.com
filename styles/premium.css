@@ -9,9 +9,12 @@
 }
 
 .option {
+    --padding: 4px;
+    --radius: 24px;
+
     text-align: center;
     background: linear-gradient(45deg, var(--secondary-dark), var(--secondary));
-    border-radius: 12px;
+    border-radius: var(--radius);
     padding: 16px 24px;
 
     margin: 0 auto;
@@ -24,13 +27,13 @@
 .option::before {
     content: '';
     position: absolute;
-    border-radius: 9px;
+    border-radius: calc(var(--radius) - var(--padding));
     z-index: -1;
 
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    top: 3px;
-    left: 3px;
+    width: calc(100% - var(--padding) * 2);
+    height: calc(100% - var(--padding) * 2);
+    top: var(--padding);
+    left: var(--padding);
     background: var(--embed);
 }
 
