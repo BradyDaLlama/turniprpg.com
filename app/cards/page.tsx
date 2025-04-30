@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import '@/styles/cards.css';
 
-import { Pagination } from "@heroui/react";
+import { Pagination } from '@heroui/react';
 
 import { Card as CardType } from '../../types/card';
 import Card from '../../components/cards/card';
@@ -50,7 +50,7 @@ export default function Cards() {
 
     function filterCards(card: CardType) {
         const starCount = filters.starCount.length === 0 || filters.starCount.includes(card.stars.length);
-        const elements = filters.elements.length === 0 || filters.elements.some((element) => card.elements.includes(element));
+        const elements = filters.elements.length === 0 || filters.elements.some((element) => card.element === element);
         const starTypes = filters.starTypes.length === 0 || filters.starTypes.some((starType) => card.stars.includes(starType));
         return starCount && elements && starTypes;
     }
