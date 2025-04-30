@@ -3,6 +3,7 @@ export type Card = {
     name?: string;
     description?: string;
     stars: string[];
-    elements: string[];
+    energy: number;
+    element: string;
     special?: {};
 };
