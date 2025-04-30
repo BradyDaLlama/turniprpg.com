@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Card as CardType } from '../../types/card';
 
 export default function Card({ card }: { card: CardType }) {
-    const { name, cardID, elements, description, stars } = card; // Deconstructing the card object
+    const { name, cardID, energy, element, description, stars } = card; // Deconstructing the card object
     const [flipped, setIsFlipped] = useState(false);
 
     return (
@@ -12,8 +12,8 @@ export default function Card({ card }: { card: CardType }) {
             <h2>
                 {name || cardID}
                 <span className="card-info">
-                    {elements.map((element) => (
-                        <img key={element} src={`/images/cards/${element}.png`} alt={`${element} element`} className="star" />
+                    {new Array(energy ?? 0).fill(0).map((_, index) => (
+                        <img key={index} src={`/images/cards/${element}.png`} alt="energy" className="star" />
                     ))}
                 </span>
             </h2>
