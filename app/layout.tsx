@@ -28,8 +28,13 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    const cookieStore = cookies();
-    const theme = cookieStore.get('theme')?.value;
+    let theme = 'dark';
+    try {
+        const cookieStore = cookies();
+        theme = cookieStore.get('theme')?.value as string;
+    } catch (e) {
+        theme = 'dark';
+    }
 
     return (
         <html suppressHydrationWarning lang="en" data-theme={theme || 'dark'}>
