@@ -40,9 +40,6 @@ export default function Header() {
                         </div>
                         <ul className="navbar-links menu-hide">
                             <li>
-                                <ContentDropdown/>
-                            </li>
-                            <li>
                                 <a href="/invite">Invite</a>
                             </li>
                             <li>
