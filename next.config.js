@@ -22,6 +22,11 @@ module.exports = {
                 destination: 'https://discord.gg/cGEEHXw',
                 permanent: true,
             },
+            {
+                source: '/vote',
+                destination: 'https://top.gg/bot/882808942881816577/vote',
+                permanent: true,
+            },
         ];
     },
     async rewrites() {
